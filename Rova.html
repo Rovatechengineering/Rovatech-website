@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="app.css" />
+    <title>RovaTech Solutions | Automated Dispensing Machines</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/IMAGES/Rovatech-Logo-ICON.ico"
+    />
+    <meta
+      name="description"
+      content="Manufacturer of advanced ATM-style dispensing machines for oil, milk, water, rice, and custom automation solutions"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #0056b3;
+        --secondary-color: #ff6b00;
+        --dark-color: #1a2a3a;
+        --light-color: #f8f9fa;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* Navigation */
+      .navbar {
+        background-color: var(--dark-color) !important;
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 60px;
+      }
+
+      .navbar-brand span {
+        color: var(--secondary-color);
+      }
+
+      .nav-link {
+        font-weight: 500;
+        margin: 0 10px;
+        position: relative;
+      }
+
+      .nav-link:hover {
+        color: var(--secondary-color) !important;
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--secondary-color);
+        transition: width 0.3s;
+      }
+
+      .nav-link:hover:after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("IMAGES/waterAtm.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 90vh;
+        color: white;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      .hero-content {
+        max-width: 700px;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Products Section */
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 50px;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 4px;
+        background-color: var(--secondary-color);
+        bottom: -10px;
+        left: 0;
+      }
+
+      .product-card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        margin-bottom: 30px;
+        height: 100%;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .product-img {
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .product-title {
+        font-weight: 600;
+        color: var(--dark-color);
+        margin-bottom: 10px;
+      }
+
+      .product-features {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .product-features li {
+        margin-bottom: 5px;
+        position: relative;
+        padding-left: 25px;
+      }
+
+      .product-features li:before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: var(--secondary-color);
+      }
+
+      /* Services Section */
+      .service-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+        height: 100%;
+        text-align: center;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .service-icon {
+        font-size: 3.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+      }
+
+      .service-title {
+        font-weight: 600;
+        margin-bottom: 15px;
+        color: var(--dark-color);
+      }
+
+      /* About Section */
+      .about-section {
+        background-color: var(--light-color);
+      }
+
+      .about-img {
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url("https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 80px 0;
+      }
+
+      .contact-form {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 10px;
+        color: var(--dark-color);
+      }
+
+      .form-control {
+        height: 50px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      textarea.form-control {
+        height: 150px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 60px 0 20px;
+      }
+
+      .footer-logo {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo span {
+        color: var(--secondary-color);
+      }
+
+      .footer-links h5 {
+        font-weight: 600;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .footer-links h5:after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        background-color: var(--secondary-color);
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer-links ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: #adb5bd;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary-color);
+      }
+
+      .social-icons a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        margin-right: 10px;
+        transition: all 0.3s;
+      }
+
+      .social-icons a:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-5px);
+      }
+
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+        margin-top: 40px;
+      }
+
+      /* Buttons */
+      .btn-primary-custom {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s;
+      }
+
+      .btn-primary-custom:hover {
+        background-color: #004494;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
+      }
+
+      .btn-secondary-custom {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s;
+      }
+
+      .btn-secondary-custom:hover {
+        background-color: #e05f00;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .delay-1 {
+        animation-delay: 0.2s;
+      }
+
+      .delay-2 {
+        animation-delay: 0.4s;
+      }
+
+      .delay-3 {
+        animation-delay: 0.6s;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#"
+          ><img src="IMAGES/Rovatech-Logo-ICON.png" alt="Rovatech logo"
+          width=15%; aspect-ratio=4/3; objecct-fit=cover; float=center;/>
+          Rova<span>Tech</span>
+        </a>
+        <br />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#products">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn-secondary-custom ms-lg-3"
+            >Get Quote</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="hero-content animate">
+          <h1 class="hero-title">
+            Revolutionary Dispensing Systems and IoT solutions
+          </h1>
+          <p class="hero-subtitle">
+            We're dealers in ATM machines for Oil, Milk, Water, Rice and Custom
+            IoT Solutions for your business needs.
+          </p>
+          <div class="d-flex gap-3">
+            <a href="#products" class="btn btn-primary-custom">Our Products</a>
+            <a href="#contact" class="btn btn-outline-light">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5 my-5">
+      <div class="container">
+        <h2 class="text-center section-title animate">
+          Our Dispensing Machines
+        </h2>
+        <p class="text-center mb-5 animate delay-1">
+          High-quality automated dispensing solutions for your business
+        </p>
+
+        <div id="Oil ATM" class="row g-4">
+          <!-- Oil Dispensing Machine -->
+          <div class="col-md-6 col-lg-4 animate delay-1">
+            <div class="card product-card">
+              <img
+                src="IMAGES/OILATM.jpg"
+                class="card-img-top product-img"
+                alt="Oil Dispensing Machine"
+              />
+              <div class="card-body">
+                <h3 class="product-title">Oil ATM</h3>
+                <p class="card-text">
+                  Automated solution for dispensing various types of oils with
+                  precision measurement and payment integration.
+                </p>
+                <ul class="product-features">
+                  <li>Accurate Oil metering</li>
+                  <li>Cashless payment options (LIPA NA MPESA)</li>
+                  <li>Cash payment options (COIN ACCEPTOR)</li>
+                  <li>Remote sales monitoring</li>
+                  <li>Stainless steel construction</li>
+                </ul>
+                <a
+                  href="Oilatm.html"
+                  class="btn btn-primary-custom w-100"
+                  target="_blank"
+                  >VIEW PRODUCT</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Milk Dispensing Machine -->
+          <div id="Milk ATM" class="col-md-6 col-lg-4 animate delay-2">
+            <div class="card product-card">
+              <img src="IMAGES/milk atm.jpg" class="card-img-top product-img"
+              alt="Milk Dispensing Machine" width=15%; aspect-ratio=4/3;
+              objecct-fit=contain; float=center; />
+              <div class="card-body">
+                <h3 class="product-title">Milk ATM</h3>
+                <p class="card-text">
+                  Hygienic Milk dispensing system with temperature control and
+                  freshness monitoring.
+                </p>
+                <ul class="product-features">
+                  <li>Temperature controlled storage</li>
+                  <li>Easier cleaning</li>
+                  <li>Cashless payment options (LIPA NA MPESA)</li>
+                  <li>Cash payment options (COIN ACCEPTOR)</li>
+                  <li>Real-time inventory tracking</li>
+                  <li>
+                    Food-grade materials (Stainless steel tanks and vending box)
+                  </li>
+                </ul>
+                <a
+                  href="Milkatm.html"
+                  class="btn btn-primary-custom w-100"
+                  target="_blank"
+                  >VIEW PRODUCT</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Water Dispensing Machine -->
+          <div id="Water ATM" class="col-md-6 col-lg-4 animate delay-3">
+            <div class="card product-card">
+              <img
+                src="IMAGES/WATERATM2.jpg"
+                class="card-img-top product-img"
+                alt="Water Dispensing Machine"
+              />
+              <div class="card-body">
+                <h3 class="product-title">Water ATM</h3>
+                <p class="card-text">
+                  Advanced water vending machine with purification system and
+                  multiple container options.
+                </p>
+                <ul class="product-features">
+                  <li>Multi-stage filtration</li>
+                  <li>UV sterilization</li>
+                  <li>Variable container sizes</li>
+                  <li>Cashless payment options (LIPA NA MPESA)</li>
+                  <li>Cash payment options (COIN ACCEPTOR)</li>
+                  <li>Low maintenance design</li>
+                </ul>
+                <a
+                  href="Wateratm.html"
+                  class="btn btn-primary-custom w-100"
+                  target="_blank"
+                  >VIEW PRODUCT</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Rice Dispensing Machine -->
+          <div id="Rice ATM" class="col-md-6 col-lg-4 animate delay-1">
+            <div class="card product-card">
+              <img src="" class="card-img-top product-img" alt="RICE ATM" />
+              <div class="card-body">
+                <h3 class="product-title">Rice ATM</h3>
+                <p class="card-text">
+                  Automated rice dispensing system with precise weighing and
+                  packaging options.
+                </p>
+                <ul class="product-features">
+                  <li>Precision digital scale</li>
+                  <li>Multiple rice varieties</li>
+                  <li>Cash and Cashless payment options</li>
+                  <li>Dust-free operation</li>
+                  <li>High capacity storage</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary-custom w-100"
+                  >INQUIRE ABOUT THE PRODUCT</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Multi-Product Dispenser -->
+          <div id="Multi-Dispensers" class="col-md-6 col-lg-4 animate delay-2">
+            <div class="card product-card">
+              <img
+                src="IMAGES/multipleproducts.jpg"
+                class="card-img-top product-img"
+                alt="Multi-Product Dispenser"
+              />
+              <div class="card-body">
+                <h3 class="product-title">Multi-Product Dispenser</h3>
+                <p class="card-text">
+                  Versatile machine capable of dispensing multiple products from
+                  a single unit.
+                </p>
+                <ul class="product-features">
+                  <li>Up to 5 product types</li>
+                  <li>Customizable compartments</li>
+                  <li>Interactive touch screen</li>
+                  <li>Inventory management</li>
+                  <li>Cashless payment options (LIPA NA MPESA)</li>
+                  <li>Cash payment options (COIN ACCEPTOR)</li>
+                  <li>Low maintenance design</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary-custom w-100"
+                  >INQUIRE ABOUT THE PRODUCT</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Embedded system componenets -->
+          <div
+            id="Embedded Systems Components"
+            class="col-md-6 col-lg-4 animate delay-2"
+          >
+            <div class="card product-card">
+              <img
+                src="IMAGES/embeddedcomponents.jpg"
+                class="card-img-top product-img"
+                alt="Multi-Product Dispenser"
+              />
+              <div class="card-body">
+                <h3 class="product-title">Embedded Systems Components</h3>
+                <p class="card-text">
+                  Your one-stop shop for high-quality resistors, capacitors,
+                  relay modules, microcontrollers, and all your embedded
+                  hardware needs.
+                </p>
+                <a
+                  href="components.html"
+                  class="btn btn-primary-custom w-100"
+                  target="_blank"
+                  >SHOP COMPONENTS</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Custom Automation -->
+          <div id="Custom Automation" class="col-md-6 col-lg-4 animate delay-3">
+            <div class="card product-card">
+              <img
+                src="IMAGES/customautomation.jpg"
+                class="card-img-top product-img"
+                alt="Custom Automation"
+              />
+              <div class="card-body">
+                <h3 class="product-title">Custom Automation</h3>
+                <p class="card-text">
+                  Tailored IoT solutions designed for your specific business
+                  requirements.
+                </p>
+                <ul class="product-features">
+                  <li>Fully customized design in IoT</li>
+                  <li>Specialized product handling</li>
+                  <li>Integration with existing systems</li>
+                  <li>Advanced reporting</li>
+                  <li>24/7 technical support</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary-custom w-100"
+                  >Discuss Project</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center section-title animate">Our Services</h2>
+        <p class="text-center mb-5 animate delay-1">
+          Comprehensive support for your automation needs
+        </p>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 animate delay-1">
+            <div class="service-card">
+              <i class="fas fa-cogs service-icon"></i>
+              <h3 class="service-title">Machine Installation</h3>
+              <p>
+                Professional installation of dispensing machines with full setup
+                and configuration to ensure optimal performance.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 animate delay-2">
+            <div class="service-card">
+              <i class="fas fa-tools service-icon"></i>
+              <h3 class="service-title">Maintenance & Repair</h3>
+              <p>
+                Regular maintenance and prompt repair services to keep your
+                machines running smoothly with minimal downtime.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 animate delay-3">
+            <div class="service-card">
+              <i class="fas fa-laptop-code service-icon"></i>
+              <h3 class="service-title">Software Integration</h3>
+              <p>
+                Custom software solutions for payment processing, inventory
+                management, and remote monitoring.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 animate delay-1">
+            <div class="service-card">
+              <i class="fas fa-lightbulb service-icon"></i>
+              <h3 class="service-title">Custom Development</h3>
+              <p>
+                Tailored automation solutions designed specifically for your
+                unique business requirements.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 animate delay-2">
+            <div class="service-card">
+              <i class="fas fa-chart-line service-icon"></i>
+              <h3 class="service-title">Performance Optimization</h3>
+              <p>
+                Analysis and enhancement of your dispensing systems to maximize
+                efficiency and profitability.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 animate delay-3">
+            <div class="service-card">
+              <i class="fas fa-graduation-cap service-icon"></i>
+              <h3 class="service-title">Training & Support</h3>
+              <p>
+                Comprehensive training programs for your staff and ongoing
+                technical support for all your machines.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 about-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0 animate">
+            <img
+              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
+              alt="Our Factory"
+              class="img-fluid about-img"
+            />
+          </div>
+          <div class="col-lg-6 animate delay-1">
+            <h2 class="section-title">About RovaTech</h2>
+            <p class="lead">
+              We are revolutionizing automated dispensing technology
+            </p>
+            <p>
+              RovaTech Engineering is a leading manufacturer of automated
+              dispensing machines with over a decade of experience in developing
+              innovative solutions for retail, agriculture, and industrial
+              applications.
+            </p>
+            <p>
+              Our team of engineers and technicians are dedicated to creating
+              reliable, efficient, and user-friendly dispensing systems that
+              revolutionize how businesses distribute their products.
+            </p>
+            <p>
+              With installations in over 15 countries, we pride ourselves on
+              delivering high-quality machines backed by exceptional customer
+              service and technical support.
+            </p>
+            <div class="d-flex gap-3 mt-4">
+              <div class="text-center">
+                <h3 class="text-primary">500+</h3>
+                <p>Machines Installed</p>
+              </div>
+              <div class="text-center">
+                <h3 class="text-primary">15+</h3>
+                <p>Countries Served</p>
+              </div>
+              <div class="text-center">
+                <h3 class="text-primary">24/7</h3>
+                <p>Support Available</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-white">
+      <div class="container">
+        <h2 class="text-center section-title animate">What Our Clients Say</h2>
+        <p class="text-center mb-5 animate delay-1">
+          Success stories from businesses using our solutions
+        </p>
+
+        <div class="row">
+          <div class="col-lg-8 mx-auto animate delay-2">
+            <div
+              id="testimonialCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="testimonial-item text-center p-4">
+                    <div class="mb-4">
+                      <i class="fas fa-quote-left fa-2x text-muted"></i>
+                    </div>
+                    <p class="mb-4">
+                      "The oil dispensing ATMs from RovaTech have transformed
+                      our retail operations. We've seen a 40% increase in sales
+                      while reducing staffing costs significantly."
+                    </p>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src=""
+                        class="rounded-circle me-3"
+                        width="60"
+                        alt="Client"
+                      />
+                      <div class="text-start">
+                        <h5 class="mb-0">Rajab Mwanika</h5>
+                        <p class="text-muted mb-0">Businessman in Kitui</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="testimonial-item text-center p-4">
+                    <div class="mb-4">
+                      <i class="fas fa-quote-left fa-2x text-muted"></i>
+                    </div>
+                    <p class="mb-4">
+                      "Our milk dispensing units operate 24/7 with minimal
+                      maintenance. The hygienic design and easy payment options
+                      have made us the preferred supplier in our region."
+                    </p>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src=""
+                        class="rounded-circle me-3"
+                        width="60"
+                        alt="Client"
+                      />
+                      <div class="text-start">
+                        <h5 class="mb-0">Sarah Cherono</h5>
+                        <p class="text-muted mb-0">Shopkeeper, Eldoret</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="testimonial-item text-center p-4">
+                    <div class="mb-4">
+                      <i class="fas fa-quote-left fa-2x text-muted"></i>
+                    </div>
+                    <p class="mb-4">
+                      "The custom automation solution for our rice distribution
+                      centers has improved accuracy and reduced waste by 25%.
+                      The support team is always responsive when we need
+                      assistance."
+                    </p>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        src=""
+                        class="rounded-circle me-3"
+                        width="60"
+                        alt="Client"
+                      />
+                      <div class="text-start">
+                        <h5 class="mb-0">Michael Chaka</h5>
+                        <p class="text-muted mb-0">Rice Miller, Mwea</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#testimonialCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#testimonialCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-5 mb-lg-0 animate">
+            <h2 class="text-white mb-4">Get In Touch</h2>
+            <p class="text-white mb-5">
+              Ready to automate your dispensing operations? Contact our team for
+              a consultation or request a quote for your project.
+            </p>
+
+            <div class="mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fas fa-map-marker-alt fa-2x text-secondary me-3"></i>
+                <div>
+                  <h5 class="text-white mb-0">Location</h5>
+                  <p class="text-white-100 mb-0">
+                    <a href="www.gooogle.com" class="text-white-100 mb-0">
+                      Juja JKUAT GATE B (Sunrise Street)</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fas fa-phone-alt fa-2x text-secondary me-3"></i>
+                <div>
+                  <h5 class="text-white mb-0">Phone</h5>
+                  <p>
+                    <a href="tel:+254700484620" class="text-white-100 mb-0"
+                      >+254 700 484 620</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <i class="fas fa-envelope fa-2x text-secondary me-3"></i>
+                <div>
+                  <h5 class="text-white mb-0">Email</h5>
+                  <p>
+                    <a
+                      href="mailto:sakwarodgers72@gmail.com"
+                      class="text-white-100 mb-0"
+                      >rovatechengineering@gmail.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <h5 class="text-white mb-3">Follow Us</h5>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/me/"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="https://x.com/rova_tech1"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/company/107952555/admin/dashboard?lipi=urn%3Ali%3Apage%3Aorganization_admin_admin_analytics_competitors%3B6fbe6cd5-e9bf-40e6-bc00-b71ba4a909e9"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="https://www.instagram.com/rovatechengineering/"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="https://www.youtube.com/@Rovatechengineering"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 animate delay-1">
+            <div class="contact-form">
+              <h3 class="mb-4">Send Us a Message</h3>
+              <form id="contactForm">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Subject"
+                  />
+                </div>
+                <div class="mb-3">
+                  <select class="form-select">
+                    <option selected>I'm interested in...</option>
+                    <option>Oil Dispensing Machine</option>
+                    <option>Milk Dispensing Machine</option>
+                    <option>Water Dispensing Machine</option>
+                    <option>Rice Dispensing Machine</option>
+                    <option>Multi-Product Dispenser</option>
+                    <option>Embedded system Components</option>
+                    <option>Custom Automation Solution</option>
+                    <option>Maintenance Services</option>
+                    <option>Other Inquiry</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <textarea
+                    class="form-control"
+                    rows="5"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-secondary-custom w-100">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="footer-logo">Rova<span>Tech</span></div>
+            <p class="mb-4">
+              Leading manufacturer of automated dispensing machines and custom
+              automation solutions for various industries worldwide.
+            </p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/me/"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="https://x.com/rova_tech1"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/107952555/admin/dashboard?lipi=urn%3Ali%3Apage%3Aorganization_admin_admin_analytics_competitors%3B6fbe6cd5-e9bf-40e6-bc00-b71ba4a909e9"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="https://www.instagram.com/rovatechengineering/"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="https://www.youtube.com/@Rovatechengineering"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+            <div class="footer-links">
+              <h5>Quick Links</h5>
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+            <div class="footer-links">
+              <h5>Products</h5>
+              <ul>
+                <li><a href="#Oil ATM">Oil ATMs</a></li>
+                <li><a href="#Milk ATM">Milk ATMs</a></li>
+                <li><a href="#Water ATM">Water ATMs</a></li>
+                <li><a href="#Rice ATM">Rice ATMs</a></li>
+                <li><a href="#Multi-Dispensers">Multi-Dispensers</a></li>
+                <li>
+                  <a href="#Embedded Systems Components"
+                    >Embedded systems Components</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-links">
+              <h5>Newsletter</h5>
+              <p>
+                Subscribe to our newsletter for the latest updates and offers.
+              </p>
+              <form class="mb-3">
+                <div class="input-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your Email"
+                  />
+                  <button class="btn btn-secondary-custom" type="submit">
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+              <p><i class="fas fa-clock me-2"></i> Mon-Fri: 8AM-5PM</p>
+              <p><i class="fas fa-clock me-2"></i> Sat: 9AM-4PM</p>
+              <p>
+                <i class="fas fa-phone-alt me-2"></i>
+                <a href="tel:+254700484620" class="text-white-100 mb-0"
+                  >+254 700 484 620</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="copyright text-center">
+          <p class="mb-0">
+            &copy; 2025 RovaTech Solutions. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Animation on scroll
+      document.addEventListener('DOMContentLoaded', function() )
+      {
+          const animateElements = document.querySelectorAll('.animate');
+
+          const observer = new IntersectionObserver((entries)) => {
+              entries.forEach(entry)}
+      }
+    </script>
+  </body>
+</html>
