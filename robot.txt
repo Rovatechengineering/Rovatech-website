@@ -57,5 +57,4 @@ Allow: /
 # Crawl delay (optional - helps prevent server overload)
 Crawl-delay: 1
 
-# Sitemap location (update with your actual sitemap URL)
 Sitemap: https://rovatechengineering.com/sitemap.xml
