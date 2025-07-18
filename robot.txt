@@ -1,0 +1,61 @@
+# Robots.txt for RovaTech Solutions
+# Website: Automated Dispensing Machines and IoT Solutions
+
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl main pages
+Allow: /index.html
+Allow: /Oilatm.html
+Allow: /Milkatm.html
+Allow: /Wateratm.html
+Allow: /components.html
+
+# Allow crawling of images directory
+Allow: /IMAGES/
+
+# Allow crawling of CSS files
+Allow: /app.css
+Allow: /*.css
+
+# Allow crawling of JavaScript files
+Allow: /*.js
+
+# Common directories to disallow (if they exist)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /backup/
+Disallow: /logs/
+Disallow: /config/
+Disallow: /database/
+
+# Disallow search result pages (if any)
+Disallow: /search?
+Disallow: /*?search=
+
+# Disallow duplicate content with query parameters
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Crawl delay (optional - helps prevent server overload)
+Crawl-delay: 1
+
+# Sitemap location (update with your actual sitemap URL)
+Sitemap: https://rovatechengineering.com/sitemap.xml
