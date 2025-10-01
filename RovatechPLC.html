@@ -5,32 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="keywords"
-      content="Oil ATMs, Milk ATMs, Water ATMs, Rice ATMs, Automated Dispensing Systems, IoT Solutions Kenya, RovaTech Solutions, Cashless Payment Systems, M-Pesa Integration, Vending Machines Kenya"
+      content="PLC, Programmable Logic Controller, Oil atms, Milk atms, Water atm, Rice atm, Automation, Industrial control systems, IoT solutions"
     />
     <meta
       name="description"
-      content="RovaTech Solutions - Kenya's leading manufacturer of advanced ATM-style dispensing machines for oil, milk, water, rice, and custom automation solutions with M-Pesa integration."
+      content="RovaTech PLC solutions - Advanced Programmable Logic Controllers for automated dispensing machines including oil ATMs, milk ATMs, water ATMs, and rice ATMs"
     />
-    <meta name="author" content="RovaTech Solutions" />
-    <meta name="robots" content="index, follow" />
-    <meta
-      property="og:title"
-      content="RovaTech Solutions | Automated Dispensing Machines"
-    />
-    <meta
-      property="og:description"
-      content="Kenya's premier manufacturer of automated dispensing machines with M-Pesa integration for oil, milk, water, and rice."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.rovatechengineering.com" />
-    <meta
-      property="og:image"
-      content="https://www.rovatechengineering/IMAGES/20LI.jpg"
-    />
-
+    <title>
+      RovaTech PLC Solutions | Programmable Logic Controllers for ATM Machines
+    </title>
     <link
-      rel="stylesheet"
+      rel="icon"
+      type="image/x-icon"
+      href="/IMAGES/Rovatech-Logo-ICON.ico"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
     />
     <link
       rel="stylesheet"
@@ -42,15 +33,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="/IMAGES/Rovatech-Logo-ICON.ico"
-    />
-    <title>
-      RovaTech Engineering Solutions | Kenya's Leading Automated Dispensing
-      Machines
-    </title>
 
     <style>
       :root {
@@ -75,6 +57,7 @@
         color: var(--text-color);
         overflow-x: hidden;
         scroll-behavior: smooth;
+        padding-bottom: 80px; /* Space for floating cart button */
       }
 
       h1,
@@ -252,14 +235,252 @@
         height: 1.2em;
       }
 
+      /* Floating Cart Button */
+      .floating-cart-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: var(--secondary-color);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .floating-cart-btn:hover {
+        background-color: #e05f00;
+        transform: scale(1.1);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .floating-cart-btn i {
+        font-size: 24px;
+      }
+
+      .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      /* Cart Modal */
+      .cart-modal {
+        position: fixed;
+        top: 0;
+        right: -400px;
+        width: 100%;
+        max-width: 400px;
+        height: 100%;
+        background-color: white;
+        z-index: 1100;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.4s ease;
+        overflow-y: auto;
+      }
+
+      .cart-modal.open {
+        right: 0;
+      }
+
+      .cart-header {
+        padding: 20px;
+        background-color: var(--dark-color);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .cart-header h3 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+
+      .close-cart {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .close-cart:hover {
+        color: var(--secondary-color);
+      }
+
+      .cart-body {
+        padding: 20px;
+      }
+
+      .cart-item {
+        display: flex;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+      }
+
+      .cart-item-img {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-right: 15px;
+        background-color: #f8f9fa;
+        border-radius: 5px;
+        padding: 5px;
+      }
+
+      .cart-item-details {
+        flex: 1;
+      }
+
+      .cart-item-title {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .cart-item-price {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .cart-item-controls {
+        display: flex;
+        align-items: center;
+      }
+
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+      }
+
+      .quantity-btn {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ddd;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      .quantity-input {
+        width: 40px;
+        height: 30px;
+        border: 1px solid #ddd;
+        text-align: center;
+        margin: 0 5px;
+      }
+
+      .remove-item {
+        color: #dc3545;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        transition: color 0.3s;
+      }
+
+      .remove-item:hover {
+        color: #c82333;
+      }
+
+      .cart-footer {
+        padding: 20px;
+        border-top: 1px solid #eee;
+        background-color: #f8f9fa;
+      }
+
+      .cart-total {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .cart-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .checkout-btn,
+      .continue-shopping {
+        padding: 12px;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .checkout-btn {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+
+      .checkout-btn:hover {
+        background-color: #e05f00;
+      }
+
+      .continue-shopping {
+        background-color: var(--dark-color);
+        color: white;
+      }
+
+      .continue-shopping:hover {
+        background-color: #0f1c29;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
       /* Hero Section - Centered Content */
       .hero-section {
         background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-          url("IMAGES/waterAtm.jpg");
+          url("IMAGES/Plc1.jpg");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
-        min-height: 90vh;
+        min-height: 80vh;
         color: white;
         display: flex;
         align-items: center;
@@ -401,6 +622,22 @@
         position: absolute;
         left: 0;
         color: var(--accent-color);
+      }
+
+      .add-to-cart-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        width: 100%;
+      }
+
+      .add-to-cart-btn:hover {
+        background-color: #004494;
       }
 
       /* Services Section */
@@ -767,62 +1004,6 @@
         transform: translateY(-3px);
       }
 
-      /* Read More Links */
-      .read-more-container {
-        margin-top: 30px;
-        text-align: center;
-      }
-
-      .read-more-link {
-        color: var(--primary-color);
-        font-weight: 600;
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        transition: all 0.3s;
-      }
-
-      .read-more-link:hover {
-        color: var(--secondary-color);
-      }
-
-      .read-more-link i {
-        margin-left: 5px;
-        transition: transform 0.3s;
-      }
-
-      .read-more-link.expanded i {
-        transform: rotate(180deg);
-      }
-
-      .content-truncated {
-        overflow: hidden;
-        max-height: 150px; /* Adjust based on your content */
-        position: relative;
-      }
-
-      .content-truncated::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 40px;
-        background: linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 1) 100%
-        );
-      }
-
-      .content-expanded .content-truncated {
-        max-height: none;
-      }
-
-      .content-expanded .content-truncated::after {
-        display: none;
-      }
-
       /* Animations */
       @keyframes fadeInUp {
         from {
@@ -858,15 +1039,67 @@
         transition-delay: 0.6s;
       }
 
-      /* Mobile Dropdown Indicator */
-      .dropdown-toggle .mobile-indicator {
-        display: none;
-        margin-left: 5px;
-        transition: transform 0.3s;
+      /* Technical Specs Table */
+      .specs-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
       }
 
-      .dropdown.show .dropdown-toggle .mobile-indicator {
-        transform: rotate(180deg);
+      .specs-table th,
+      .specs-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .specs-table th {
+        background-color: var(--light-color);
+        font-weight: 600;
+        color: var(--dark-color);
+      }
+
+      .specs-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .specs-table tr:hover {
+        background-color: rgba(0, 86, 179, 0.03);
+      }
+
+      /* Application Cards */
+      .application-card {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        background: white;
+      }
+
+      .application-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .application-img {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      /* Breadcrumb */
+      .breadcrumb {
+        background-color: transparent;
+        padding: 15px 0;
+      }
+
+      .breadcrumb-item a {
+        color: var(--secondary-color);
+        text-decoration: none;
       }
 
       /* Responsive Adjustments */
@@ -896,34 +1129,26 @@
           display: block;
         }
 
-        /* Show mobile indicator for dropdown on small screens */
-        .dropdown-toggle .mobile-indicator {
-          display: inline-block;
+        /* Floating cart button adjustments */
+        .floating-cart-btn {
+          width: 60px;
+          height: 60px;
+          bottom: 20px;
+          right: 20px;
         }
 
-        /* Fix for mobile dropdown - remove hover effects */
-        .dropdown-menu {
-          background-color: rgba(0, 0, 0, 0.3);
-          margin-top: 0;
-          text-align: center;
-          display: none; /* Hide by default on mobile */
-          opacity: 1;
-          visibility: visible;
-          transform: none;
-          pointer-events: all;
+        .floating-cart-btn i {
+          font-size: 20px;
         }
 
-        .dropdown.show .dropdown-menu {
-          display: block; /* Show when toggled on mobile */
+        .cart-count {
+          width: 22px;
+          height: 22px;
+          font-size: 0.7rem;
         }
 
-        /* Disable hover effects on mobile */
-        .dropdown:hover .dropdown-menu {
-          display: none;
-        }
-
-        .dropdown.show .dropdown-menu {
-          display: block;
+        .cart-modal {
+          max-width: 350px;
         }
       }
 
@@ -957,6 +1182,28 @@
           justify-content: center;
           margin-bottom: 5px;
         }
+
+        .specs-table {
+          font-size: 0.9rem;
+        }
+
+        .specs-table th,
+        .specs-table td {
+          padding: 10px 8px;
+        }
+
+        /* Floating cart button for mobile */
+        .floating-cart-btn {
+          width: 55px;
+          height: 55px;
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .cart-modal {
+          max-width: 100%;
+          right: -100%;
+        }
       }
 
       @media (max-width: 576px) {
@@ -986,12 +1233,28 @@
         .navbar-brand img {
           height: 40px;
         }
-      }
-      a {
-        color: #00a859;
-      }
-      a:hover {
-        color: var(--secondary-color);
+
+        .specs-table {
+          font-size: 0.8rem;
+        }
+
+        /* Floating cart button for small screens */
+        .floating-cart-btn {
+          width: 50px;
+          height: 50px;
+          bottom: 10px;
+          right: 10px;
+        }
+
+        .floating-cart-btn i {
+          font-size: 18px;
+        }
+
+        .cart-count {
+          width: 20px;
+          height: 20px;
+          font-size: 0.6rem;
+        }
       }
     </style>
   </head>
@@ -1019,9 +1282,6 @@
             </a>
           </div>
           <div class="social-icons-top d-flex">
-            <a href="https://wa.me/254700484620" title="WhatsApp"
-              ><i class="fab fa-whatsapp me-2"></i
-            ></a>
             <a
               href="https://www.facebook.com/me/"
               aria-label="Facebook"
@@ -1061,7 +1321,11 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container">
-        <a class="navbar-brand" href="#home" title="RovaTech Solutions Home">
+        <a
+          class="navbar-brand"
+          href="index.html"
+          title="RovaTech Solutions Home"
+        >
           <img
             src="IMAGES/Rovatech-Logo-ICON.png"
             alt="RovaTech Solutions Logo"
@@ -1082,11 +1346,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#home" title="Home Page">Home</a>
+              <a class="nav-link" href="index.html" title="Home Page">Home</a>
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                class="nav-link dropdown-toggle active"
                 href="#"
                 id="navbarDropdown"
                 role="button"
@@ -1095,7 +1359,7 @@
                 title="View Our Products"
                 onclick="window.location.href='Products.html'; return false;"
               >
-                Products <i class="fas fa-chevron-down mobile-indicator"></i>
+                Products
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
@@ -1136,9 +1400,9 @@
                 </li>
                 <li>
                   <a
-                    class="dropdown-item"
-                    href="RovatechPLC.html"
-                    title="Lear about our Rovatech PLC"
+                    class="dropdown-item active"
+                    href="plc-solutions.html"
+                    title="Learn about our Rovatech PLC"
                   >
                     Rovatech PLC
                   </a>
@@ -1156,7 +1420,7 @@
                 <li>
                   <a
                     class="dropdown-item"
-                    href="Products.html"
+                    href="products.html"
                     title="View All Our Products"
                   >
                     View All Products
@@ -1238,349 +1502,138 @@
       </div>
     </nav>
 
-    <!-- Hero Section - Centered -->
-    <section id="home" class="hero-section">
+    <!-- Hero Section -->
+    <section class="hero-section">
       <div class="container">
         <div class="hero-content animate">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item">
+                <a href="products.html">Products</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                PLC Solutions
+              </li>
+            </ol>
+          </nav>
           <h1 class="hero-title">
-            Revolutionary Dispensing Systems & IoT Solutions in Kenya
+            Advanced PLC Solutions for Automated Dispensing Systems
           </h1>
           <p class="hero-subtitle">
-            Leading manufacturer of <a href="Products.html">ATM machines</a> for
-            <a href="Oilatms.html">Cooking Oil</a>,
-            <a href="Milkatms.html">Milk</a>,
-            <a href="WaterAtms.html">Water</a>,
-            <a href="Riceatm.html">Rice</a>
-            with M-Pesa integration and
-            <a href="customautomation.html">custom IoT solutions</a> for your
-            business needs.
+            High-performance Programmable Logic Controllers designed for
+            <a href="Oilatms.html">Oil ATMs</a>,
+            <a href="Milkatms.html">Milk ATMs</a>,
+            <a href="WaterAtms.html">Water ATMs</a>, and
+            <a href="Riceatm.html">Rice ATMs</a> machines
           </p>
           <div class="d-flex gap-3 flex-wrap justify-content-center">
-            <a
-              href="#products"
-              class="btn btn-primary-custom"
-              title="Explore Our Products"
+            <a href="#features" class="btn btn-primary-custom"
+              >Explore Features</a
             >
-              Explore Our Products
-            </a>
-            <a
-              href="#contact"
-              class="btn btn-outline-light-custom"
-              title="Get Free Consultation"
-            >
-              Get Free Consultation
-            </a>
           </div>
           <div class="hero-badges">
-            <div class="hero-badge" title="M-Pesa Payment Integration">
+            <div class="hero-badge" title="High-Speed Processing">
+              <i class="fas fa-check-circle"></i> High-Speed Processing
+            </div>
+            <div class="hero-badge" title="IoT Connectivity">
+              <i class="fas fa-check-circle"></i> IoT Connectivity
+            </div>
+            <div class="hero-badge" title="Precision Control">
+              <i class="fas fa-check-circle"></i> Precision Control
+            </div>
+            <div class="hero-badge" title="M-Pesa Integration">
               <i class="fas fa-check-circle"></i> M-Pesa Integration
             </div>
-            <div class="hero-badge" title="24/7 Customer Support">
-              <i class="fas fa-check-circle"></i> 24/7 Support
-            </div>
-            <div class="hero-badge" title="Free Installation Service">
-              <i class="fas fa-check-circle"></i> Free Installation
-            </div>
-            <div class="hero-badge" title="Countrywide Service Coverage">
-              <i class="fas fa-check-circle"></i> Countrywide Service
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="section-padding">
+    <!-- PLC Overview Section -->
+    <section class="section-padding">
       <div class="container">
-        <div class="text-center mb-5">
-          <h2 class="section-title animate">Our Dispensing Machines</h2>
-          <p class="section-subtitle animate delay-1">
-            High-quality automated dispensing solutions designed for the Kenyan
-            market with cash and cashless payment options
-          </p>
-        </div>
-
-        <div class="row g-4">
-          <!-- Oil ATM -->
-          <div class="col-md-6 col-lg-4 animate delay-1">
-            <div class="product-card">
-              <div class="product-badge">Best Seller</div>
-              <img
-                src="IMAGES/oil3.jpg"
-                class="product-img"
-                alt="Oil Dispensing Machine - RovaTech Oil ATM"
-                loading="lazy"
-              />
-              <div class="product-card-body">
-                <h3 class="product-title">Oil ATM</h3>
-                <p>
-                  Automated solution for dispensing various types of cooking Oil
-                  with
-                  <a
-                    href="https://www.precisa.com/article/what-is-the-difference-between-accuracy-and-precision-measurements/"
-                    >accuracy and precision measurement</a
-                  >.
-                </p>
-                <ul class="product-features">
-                  <li>Accurate Oil metering system</li>
-                  <li>M-Pesa and cash payment options</li>
-                  <li>Remote sales monitoring</li>
-                  <li>
-                    Advanced
-                    <a href="RovatechPLC.html"
-                      >Programmable Logic Controller (PLC)</a
-                    >
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.marlinwire.com/blog/food-grade-stainless-steel-facts"
-                      >Food grade Stainless steel</a
-                    >
-                    storage tank
-                  </li>
-                  <li>Low maintenance design</li>
-                  <li>Low Noise operation</li>
-                </ul>
-                <a
-                  href="20L_OilAtm.html"
-                  class="btn btn-primary-custom w-100"
-                  title="View Oil ATM Details"
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0 animate">
+            <h2 class="section-title">RovaTech PLC Systems</h2>
+            <p class="lead">
+              Intelligent control solutions for automated dispensing machines
+            </p>
+            <div id="plc-content">
+              <p>
+                Our
+                <a href="RovatechPLC.html"
+                  >Programmable Logic Controllers (PLCs)</a
                 >
-                  View Product Details
-                </a>
-                <div class="read-more-container animate delay-2">
-                  <a
-                    class="read-more-link"
-                    id="services-read-more"
-                    title="Learn More About Milk ATM Business"
-                    href="Hot to start an Oil atm Business.html"
-                  >
-                    Read More: How to make money using our Oil ATMs
-                    <i class="fas fa-chevron-down"></i>
-                  </a>
-                </div>
+                are the brains behind RovaTech's advanced dispensing systems.
+                Designed specifically for the demanding requirements of oil,
+                milk, water, and rice ATMs, these industrial-grade controllers
+                ensure precise operation, reliable performance, and seamless
+                integration with payment systems.
+              </p>
+              <p>
+                With robust construction and advanced programming capabilities,
+                RovaTech PLCs deliver the precision and reliability needed for
+                24/7 operation in various environments. Our controllers are
+                engineered to handle the specific challenges of liquid and
+                granular product dispensing with exceptional accuracy.
+              </p>
+              <p>
+                Our PLC systems feature modular design, allowing for easy
+                expansion and customization based on your specific requirements.
+                Whether you need basic control functions or advanced IoT
+                connectivity for remote monitoring, our solutions scale to meet
+                your business needs.
+              </p>
+            </div>
+
+            <div class="stats-container">
+              <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Operation</div>
               </div>
+              <div class="stat-item">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Uptime</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">5ms</div>
+                <div class="stat-label">Response Time</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years Lifespan</div>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <a href="#applications" class="btn btn-secondary-custom me-3"
+                >View Applications</a
+              >
+              <a href="#specs" class="btn btn-outline-primary"
+                >Technical Specs</a
+              >
             </div>
           </div>
-
-          <!-- Milk ATM -->
-          <div class="col-md-6 col-lg-4 animate delay-2">
-            <div class="product-card">
-              <img
-                src="IMAGES/milkatm100.jpg"
-                class="product-img"
-                alt="Milk Dispensing Machine - RovaTech Milk ATM"
-                loading="lazy"
-              />
-              <div class="product-card-body">
-                <h3 class="product-title">Milk ATM</h3>
-                <p>
-                  Hygienic milk dispensing system with temperature control and
-                  freshness monitoring for dairy businesses.
-                </p>
-                <ul class="product-features">
-                  <li>Temperature controlled storage</li>
-                  <li>Easy cleaning and maintenance</li>
-                  <li>M-Pesa and cash payment options</li>
-                  <li>
-                    Real-time inventory tracking with our
-                    <a href="RovatechPLC.html">PLC</a>
-                  </li>
-                  <li>Food-grade stainless steel storage tanks</li>
-                  <li>
-                    <a href="https://www.kebs.org/certification-steps/">KEBS</a>
-                    certified
-                  </li>
-                </ul>
-                <a
-                  href="100L_Milkatm.html"
-                  class="btn btn-primary-custom w-100"
-                  title="View Milk ATM Details"
-                >
-                  View Product Details
-                </a>
-                <div class="read-more-container animate delay-2">
-                  <a
-                    class="read-more-link"
-                    id="services-read-more"
-                    title="Learn More About Milk ATM Business"
-                    href="How to start a milk atm Business.html"
-                  >
-                    Read More: How to start a Successful milk ATM Business in
-                    Kenya
-                    <i class="fas fa-chevron-down"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Water ATM -->
-          <div class="col-md-6 col-lg-4 animate delay-3">
-            <div class="product-card">
-              <div class="product-badge">Popular</div>
-              <img
-                src="IMAGES/wateratm2taps.jpg"
-                class="product-img"
-                alt="Water Dispensing Machine - RovaTech Water ATM"
-                loading="lazy"
-              />
-              <div class="product-card-body">
-                <h3 class="product-title">Water ATM</h3>
-                <p>
-                  Advanced water vending machine with purification system and
-                  multiple container size options.
-                </p>
-                <ul class="product-features">
-                  <li>Multi-stage filtration system</li>
-                  <li>UV sterilization technology</li>
-                  <li>
-                    <a href="https://www.kebs.org/certification-steps/">KEBS</a>
-                    certified
-                  </li>
-                  <li>Variable container sizes</li>
-                  <li>M-Pesa and cash payment options</li>
-                  <li>Energy efficient operation</li>
-                </ul>
-                <a
-                  href="2taps_CabinettypeWateratm.html"
-                  class="btn btn-primary-custom w-100"
-                  title="View Water ATM Details"
-                >
-                  View Product Details
-                </a>
-                <div class="read-more-container animate delay-2">
-                  <a
-                    class="read-more-link"
-                    id="services-read-more"
-                    title="Learn More About Milk ATM Business"
-                    href="How to start a water vending Bs.html"
-                  >
-                    Read More: How to start Successful Water Vending Business in
-                    Kenya
-                    <i class="fas fa-chevron-down"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Rice ATM -->
-          <div class="col-md-6 col-lg-4 animate delay-1">
-            <div class="product-card">
-              <!-- <img
-                src="IMAGES/rice-atm.jpg"
-                class="product-img"
-                alt="Rice Dispensing Machine - RovaTech Rice ATM"
-                loading="lazy"
-              />-->
-              <div class="product-card-body">
-                <h3 class="product-title">Rice ATM</h3>
-                <p>
-                  Automated rice dispensing system with precise weighing and
-                  packaging options for retailers.
-                </p>
-                <ul class="product-features">
-                  <li>Precision digital scale</li>
-                  <li>Multiple rice variety options</li>
-                  <li>Cash and cashless payment options</li>
-                  <li>Dust-free operation</li>
-                  <li>High capacity storage</li>
-                </ul>
-                <a
-                  href="Riceatm.html"
-                  class="btn btn-primary-custom w-100"
-                  title="Inquire About Rice ATM"
-                >
-                  View Product Details
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Rovatech PLC -->
-          <div class="col-md-6 col-lg-4 animate delay-2">
-            <div class="product-card">
-              <div class="product-badge">New</div>
-              <img
-                src="IMAGES/Water_ATM_PLC.jpg"
-                class="product-img"
-                alt="Rovatech PLC - Industrial Automation Controller"
-                loading="lazy"
-              />
-              <div class="product-card-body">
-                <h3 class="product-title">Rovatech PLC</h3>
-                <p>
-                  Programmable Logic Controller for industrial automation,
-                  designed for reliability and easy integration with dispensing
-                  systems.
-                </p>
-                <ul class="product-features">
-                  <li>Robust industrial-grade design</li>
-                  <li>Easy to use/operate with simple steps</li>
-                  <li>HD display</li>
-                  <li>
-                    They can operate reliably under harsh industrial
-                    environments.
-                  </li>
-                  <li>Real-time monitoring capabilities</li>
-                  <li>Remote diagnostics and updates</li>
-                </ul>
-                <a
-                  href="RovatechPLC.html"
-                  class="btn btn-primary-custom w-100"
-                  title="Learn More About Rovatech PLC"
-                >
-                  View Product Details
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Custom Automation -->
-          <div class="col-md-6 col-lg-4 animate delay-3">
-            <div class="product-card">
-              <div class="product-badge">Custom Solution</div>
-              <img
-                src="IMAGES/customautomation.jpg"
-                class="product-img"
-                alt="Custom Automation Solutions - RovaTech IoT"
-                loading="lazy"
-              />
-              <div class="product-card-body">
-                <h3 class="product-title">Custom IoT Solutions</h3>
-                <p>
-                  Tailored automation solutions designed specifically for your
-                  unique business requirements.
-                </p>
-                <ul class="product-features">
-                  <li>Fully customized IoT design</li>
-                  <li>Specialized product handling</li>
-                  <li>Integration with existing systems</li>
-                  <li>Advanced reporting and analytics</li>
-                  <li>Remote monitoring of integration</li>
-                </ul>
-                <a
-                  href="customautomation.html"
-                  class="btn btn-primary-custom w-100"
-                  title="Lear more about IoT"
-                >
-                  Learn more About IoT and Custom automation
-                </a>
-              </div>
-            </div>
+          <div class="col-lg-6 animate delay-1">
+            <img
+              src="IMAGES/OIL_ATM_PLC.jpg"
+              alt="RovaTech PLC System"
+              class="img-fluid rounded shadow"
+            />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section-padding services-section">
+    <!-- PLC Features Section -->
+    <section id="features" class="section-padding services-section">
       <div class="container">
         <div class="text-center mb-5">
-          <h2 class="section-title animate">Our Services</h2>
+          <h2 class="section-title animate">Key Features & Benefits</h2>
           <p class="section-subtitle animate delay-1">
-            Comprehensive support for your automation needs across Kenya
+            Advanced capabilities designed for optimal performance in dispensing
+            applications
           </p>
         </div>
 
@@ -1588,12 +1641,12 @@
           <div class="col-md-6 col-lg-4 animate delay-1">
             <div class="service-card">
               <div class="service-icon">
-                <i class="fas fa-cogs"></i>
+                <i class="fas fa-microchip"></i>
               </div>
-              <h3 class="service-title">Machine Installation</h3>
+              <h3 class="service-title">High-Speed Processing</h3>
               <p>
-                Professional installation of dispensing machines with full setup
-                and configuration to ensure optimal performance from day one.
+                Fast processing capabilities for real-time control and quick
+                response to user inputs.
               </p>
             </div>
           </div>
@@ -1601,12 +1654,51 @@
           <div class="col-md-6 col-lg-4 animate delay-2">
             <div class="service-card">
               <div class="service-icon">
-                <i class="fas fa-tools"></i>
+                <i class="fas fa-exchange-alt"></i>
               </div>
-              <h3 class="service-title">Maintenance & Repair</h3>
+              <h3 class="service-title">Multiple I/O Options</h3>
               <p>
-                Regular maintenance and prompt repair services to keep your
-                machines running smoothly with minimal downtime across Kenya.
+                Flexible input/output configurations to interface with sensors,
+                actuators, and payment systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 animate delay-3">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3 class="service-title">Robust Security</h3>
+              <p>
+                Advanced security features to prevent unauthorized access and
+                ensure transaction integrity.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 animate delay-1">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <h3 class="service-title">IoT Connectivity</h3>
+              <p>
+                Seamless integration with IoT platforms for remote monitoring
+                and management.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 animate delay-2">
+            <div class="service-card">
+              <div class="service-icon">
+                <i class="fas fa-tachometer-alt"></i>
+              </div>
+              <h3 class="service-title">Precision Control</h3>
+              <p>
+                Accurate measurement and dispensing control for consistent
+                product delivery.
               </p>
             </div>
           </div>
@@ -1616,246 +1708,227 @@
               <div class="service-icon">
                 <i class="fas fa-mobile-alt"></i>
               </div>
-              <h3 class="service-title">M-Pesa Integration</h3>
+              <h3 class="service-title">Mobile Integration</h3>
               <p>
-                Seamless integration of M-Pesa and other payment options to make
-                your dispensing business more accessible to customers.
+                Compatible with mobile payment systems including M-Pesa for
+                cashless transactions.
               </p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- PLC Products Section -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title animate">Available PLC Models</h2>
+          <p class="section-subtitle animate delay-1">
+            Choose the right PLC solution for your dispensing machine
+          </p>
+        </div>
+
+        <div class="row g-4">
           <div class="col-md-6 col-lg-4 animate delay-1">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-laptop-code"></i>
+            <div class="product-card">
+              <div class="product-badge">Standard</div>
+              <img
+                src="IMAGES/BasicPLC.jpg"
+                class="product-img"
+                alt="Standard PLC Model"
+              />
+              <div class="product-card-body">
+                <h3 class="product-title">Standard PLC Controller</h3>
+                <p>
+                  Basic control solution for entry-level dispensing machines
+                </p>
+                <ul class="product-features">
+                  <li>16-bit AT-Mega processor</li>
+                  <li>16 digital I/O</li>
+                  <li>Standard processing power</li>
+                  <li>Basic payment integration</li>
+                </ul>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">KSh 5,000</span>
+                  <button
+                    class="add-to-cart-btn"
+                    data-id="1"
+                    data-name="Standard PLC Controller"
+                    data-price="5000"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
-              <h3 class="service-title">Software Solutions</h3>
-              <p>
-                Custom software for payment processing, inventory management,
-                and remote monitoring of your dispensing operations.
-              </p>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 animate delay-2">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-lightbulb"></i>
+            <div class="product-card">
+              <div class="product-badge">Popular</div>
+              <img
+                src="IMAGES/Water_ATM_PLC.jpg"
+                class="product-img"
+                alt="Advanced PLC Model"
+              />
+              <div class="product-card-body">
+                <h3 class="product-title">Advanced PLC Controller</h3>
+                <p>Enhanced features for medium-scale dispensing operations</p>
+                <ul class="product-features">
+                  <li>32-bit ARM-Cortex processor</li>
+                  <li>30 digital I/O</li>
+                  <li>WiFi & 4G connectivity</li>
+                  <li>Advanced IoT features</li>
+                </ul>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">KSh 9,000</span>
+                  <button
+                    class="add-to-cart-btn"
+                    data-id="2"
+                    data-name="Advanced PLC Controller"
+                    data-price="9000"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
-              <h3 class="service-title">Custom Development</h3>
-              <p>
-                Tailored automation solutions designed specifically for your
-                unique business requirements and operational challenges.
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 animate delay-3">
-            <div class="service-card">
-              <div class="service-icon">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <h3 class="service-title">Training & Support</h3>
-              <p>
-                Comprehensive training programs for your staff and ongoing
-                technical support for all your machines nationwide.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Read More Link for Services Section -->
-        <div class="read-more-container animate delay-2">
-          <a
-            class="read-more-link"
-            id="services-read-more"
-            title="Learn More About Our Services"
-            href="Services.html"
-          >
-            Read More About Our Services <i class="fas fa-chevron-down"></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section-padding">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 mb-5 mb-lg-0 animate">
-            <img
-              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80"
-              alt="RovaTech Solutions Factory and Team"
-              class="img-fluid about-img"
-              loading="lazy"
-            />
-          </div>
-          <div class="col-lg-6 animate delay-1">
-            <h2 class="section-title">About RovaTech Solutions</h2>
-            <p class="lead">
-              We are revolutionizing automated dispensing technology across
-              Kenya
-            </p>
-            <div class="content-truncated" id="about-content">
-              <p>
-                <a href="AboutRovatech.html">RovaTech Engineering</a> is a
-                leading Kenyan manufacturer of automated dispensing machines
-                with over a decade of experience in developing innovative
-                solutions for retail, agriculture, and industrial applications.
-              </p>
-              <p>
-                Our team of engineers and technicians are dedicated to creating
-                reliable, efficient, and user-friendly dispensing systems that
-                revolutionize how businesses distribute their products
-                throughout Kenya.
-              </p>
-              <p>
-                With installations across multiple counties, we pride ourselves
-                on delivering high-quality machines backed by exceptional
-                customer service and technical support tailored for the Kenyan
-                market.
-              </p>
-              <p>
-                Our commitment to innovation has positioned us as the go-to
-                provider for automated dispensing solutions in East Africa. We
-                continuously invest in research and development to ensure
-                <a href="Products.html">our products </a>meet the evolving needs
-                of our customers.
-              </p>
-              <p>
-                Beyond our standard product offerings, we specialize in
-                <a href="customautomation.html">custom IoT solutions </a>that
-                integrate seamlessly with your existing operations, providing
-                real-time data and analytics to help you make informed business
-                decisions.
-              </p>
-            </div>
-
-            <div class="stats-container">
-              <div class="stat-item">
-                <div class="stat-number">100+</div>
-                <div class="stat-label">Machines Installed</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Counties Served</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Support Available</div>
-              </div>
-              <div class="stat-item">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">Customer Satisfaction</div>
-              </div>
-            </div>
-
-            <!-- Read More Link for About Section -->
-            <div class="read-more-container animate delay-2">
-              <a
-                class="read-more-link"
-                id="about-read-more"
-                title="Learn More About RovaTech"
-              >
-                Read More About Us <i class="fas fa-chevron-down"></i>
-              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section-padding bg-light">
+    <!-- Applications Section -->
+    <section id="applications" class="section-padding">
       <div class="container">
         <div class="text-center mb-5">
-          <h2 class="section-title animate">What Our Clients Say</h2>
+          <h2 class="section-title animate">PLC Applications</h2>
           <p class="section-subtitle animate delay-1">
-            Success stories from Kenyan businesses using our solutions
+            Tailored solutions for different dispensing machine types
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3 animate delay-1">
+            <div class="application-card">
+              <img
+                src="IMAGES/OIL_ATM_PLC.jpg"
+                class="application-img"
+                alt="Oil ATM PLC Application"
+              />
+              <div class="p-4">
+                <h4 class="product-title">Oil ATM Controllers</h4>
+                <p>
+                  Precision control for viscous liquid dispensing with accurate
+                  measurement and payment integration.
+                </p>
+                <ul class="product-features">
+                  <li>Viscosity compensation</li>
+                  <li>Temperature monitoring</li>
+                  <li>Leak detection</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 animate delay-2">
+            <div class="application-card">
+              <img
+                src="IMAGES/BasicPLC.jpg"
+                class="application-img"
+                alt="Milk ATM PLC Application"
+              />
+              <div class="p-4">
+                <h4 class="product-title">Milk ATM Controllers</h4>
+                <p>
+                  Hygienic dispensing control with temperature management and
+                  freshness monitoring.
+                </p>
+                <ul class="product-features">
+                  <li>Temperature control</li>
+                  <li>Sanitization cycles</li>
+                  <li>Spoilage detection</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 animate delay-3">
+            <div class="application-card">
+              <img
+                src="IMAGES/Water_ATM_PLC.jpg"
+                class="application-img"
+                alt="Water ATM PLC Application"
+              />
+              <div class="p-4">
+                <h4 class="product-title">Water ATM Controllers</h4>
+                <p>
+                  Multi-stage purification control with UV sterilization and
+                  filter monitoring.
+                </p>
+                <ul class="product-features">
+                  <li>Filter status monitoring</li>
+                  <li>UV lamp control</li>
+                  <li>Water quality sensing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section id="specs" class="section-padding bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title animate">Technical Specifications</h2>
+          <p class="section-subtitle animate delay-1">
+            Detailed specifications of our PLC systems
           </p>
         </div>
 
         <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <div
-              id="testimonialCarousel"
-              class="carousel slide"
-              data-bs-ride="carousel"
-            >
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="testimonial-card">
-                    <p class="testimonial-text">
-                      "The oil dispensing ATMs from RovaTech have transformed
-                      our retail operations in Kitui. We've seen a 40% increase
-                      in sales while reducing staffing costs significantly. The
-                      M-Pesa integration makes it convenient for our customers."
-                    </p>
-                    <div class="testimonial-author">
-                      <div class="author-info">
-                        <h5>Rajab Mwanika</h5>
-                        <p>Business Owner, Kitui</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="testimonial-card">
-                    <p class="testimonial-text">
-                      "Our milk dispensing units operate 24/7 with minimal
-                      maintenance. The hygienic design and easy payment options
-                      have made us the preferred supplier in Eldoret. RovaTech's
-                      after-sales support is exceptional."
-                    </p>
-                    <div class="testimonial-author">
-                      <div class="author-info">
-                        <h5>Sarah Cherono</h5>
-                        <p>Dairy Business Owner, Eldoret</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="testimonial-card">
-                    <p class="testimonial-text">
-                      "The custom automation solution for our rice distribution
-                      centers in Mwea has improved accuracy and reduced waste by
-                      25%. The support team is always responsive when we need
-                      assistance. Highly recommended!"
-                    </p>
-                    <div class="testimonial-author">
-                      <div class="author-info">
-                        <h5>Michael Chaka</h5>
-                        <p>Rice Miller, Mwea</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#testimonialCarousel"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#testimonialCarousel"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+          <div class="col-lg-10 mx-auto animate delay-2">
+            <div class="table-responsive">
+              <table class="specs-table">
+                <tr>
+                  <th>Parameter</th>
+                  <th>Standard Model</th>
+                  <th>Advanced Model</th>
+                </tr>
+                <tr>
+                  <td>Processor</td>
+                  <td>16/8-bit RISC, 16 MHz</td>
+                  <td>32-bit ARM, 512 MHz</td>
+                </tr>
+                <tr>
+                  <td>Memory</td>
+                  <td>32 KB RAM, 56 KB Flash</td>
+                  <td>256RAM, 4/16 MB Flash</td>
+                </tr>
+                <tr>
+                  <td>Digital I/O</td>
+                  <td>16 inputs, 12 outputs</td>
+                  <td>32 inputs, 24 outputs</td>
+                </tr>
+                <tr>
+                  <td>Analog I/O</td>
+                  <td>4 inputs, 2 outputs</td>
+                  <td>8 inputs, 4 outputs</td>
+                </tr>
+                <tr>
+                  <td>Operating Temperature</td>
+                  <td>-10°C to 60°C</td>
+                  <td>-20°C to 70°C</td>
+                </tr>
+                <tr>
+                  <td>Power Supply</td>
+                  <td>5V DC ±10%</td>
+                  <td>3.3V DC ±10%</td>
+                </tr>
+              </table>
             </div>
           </div>
         </div>
@@ -1867,10 +1940,11 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-5 mb-5 mb-lg-0 animate">
-            <h2 class="text-white mb-4">Get In Touch</h2>
+            <h2 class="text-white mb-4">PLC Solutions Inquiry</h2>
             <p class="text-white mb-5">
-              Ready to automate your dispensing operations? Contact our team for
-              a free consultation or request a quote for your project.
+              Interested in our PLC solutions for your dispensing machines?
+              Contact our technical team for detailed specifications, pricing,
+              and customization options.
             </p>
 
             <div class="contact-info-item">
@@ -1929,7 +2003,7 @@
               <div class="contact-text">
                 <h5>Working Hours</h5>
                 <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                <p>Saturday: 9:00 AM - 4:00 PM</p>
+                <p>Saturday: 9:00 AM - 2:00 PM</p>
               </div>
             </div>
 
@@ -1977,7 +2051,7 @@
 
           <div class="col-lg-7 animate delay-1">
             <div class="contact-form">
-              <h3 class="mb-4">Send Us a Message</h3>
+              <h3 class="mb-4">Request PLC Information</h3>
               <form id="contactForm">
                 <div class="row">
                   <div class="col-md-6 mb-3">
@@ -2001,7 +2075,7 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Subject"
+                    placeholder="Company Name"
                   />
                 </div>
                 <div class="mb-3">
@@ -2009,12 +2083,12 @@
                     <option value="" selected disabled>
                       I'm interested in...
                     </option>
-                    <option>Oil Atm</option>
-                    <option>Milk Atm</option>
-                    <option>Water Dispensing Machine</option>
-                    <option>Rice Dispensing Machine</option>
-                    <option>Rovatech PLC</option>
-                    <option>Custom Automation Solution</option>
+                    <option>Oil ATM PLC Solution</option>
+                    <option>Milk ATM PLC Solution</option>
+                    <option>Water ATM PLC Solution</option>
+                    <option>Rice ATM PLC Solution</option>
+                    <option>Custom PLC Solution</option>
+                    <option>Technical Consultation</option>
                     <option>Maintenance Services</option>
                     <option>Other Inquiry</option>
                   </select>
@@ -2023,16 +2097,16 @@
                   <textarea
                     class="form-control"
                     rows="5"
-                    placeholder="Your Message"
+                    placeholder="Your Specific Requirements"
                     required
                   ></textarea>
                 </div>
                 <button
                   type="submit"
                   class="btn btn-secondary-custom w-100"
-                  title="Send Message"
+                  title="Send Inquiry"
                 >
-                  Send Message <i class="fas fa-paper-plane ms-2"></i>
+                  Send Inquiry <i class="fas fa-paper-plane ms-2"></i>
                 </button>
               </form>
             </div>
@@ -2100,12 +2174,12 @@
             <div class="footer-links">
               <h5>Quick Links</h5>
               <ul>
-                <li><a href="#home" title="Home Page">Home</a></li>
+                <li><a href="index.html" title="Home Page">Home</a></li>
                 <li>
-                  <a href="Products.html" title="Our Products">Products</a>
+                  <a href="products.html" title="Our Products">Products</a>
                 </li>
                 <li>
-                  <a href="Services.html" title="Our Services">Services</a>
+                  <a href="services.html" title="Our Services">Services</a>
                 </li>
                 <li>
                   <a href="AboutRovatech.html" title="About RovaTech"
@@ -2119,28 +2193,23 @@
 
           <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
             <div class="footer-links">
-              <h5>Our Products</h5>
+              <h5>PLC Solutions</h5>
               <ul>
+                <li><a href="#features" title="PLC Features">Features</a></li>
                 <li>
-                  <a href="Oilatms.html" title="Oil ATMs">Oil ATMs</a>
-                </li>
-                <li>
-                  <a href="Milkatms.html" title="Milk ATMs">Milk ATMs</a>
-                </li>
-                <li>
-                  <a href="WaterAtms.html" title="Water ATMs">Water ATMs</a>
-                </li>
-                <li><a href="Riceatm.html" title="Rice ATMs">Rice ATMs</a></li>
-                <li>
-                  <a href="RovatechPLC.html" title="Rovatech PLC"
-                    >Rovatech PLC</a
+                  <a href="#applications" title="PLC Applications"
+                    >Applications</a
                   >
                 </li>
                 <li>
-                  <a href="customautomation.html" title="Custom Solutions"
-                    >Custom Solutions</a
+                  <a href="#specs" title="Technical Specifications"
+                    >Technical Specs</a
                   >
                 </li>
+                <li>
+                  <a href="#contact" title="Request Quote">Request Quote</a>
+                </li>
+                <li><a href="services.html" title="Support">Support</a></li>
               </ul>
             </div>
           </div>
@@ -2149,8 +2218,8 @@
             <div class="footer-links">
               <h5>Newsletter</h5>
               <p>
-                Subscribe to our newsletter for the latest updates and special
-                offers.
+                Subscribe to our newsletter for the latest updates on PLC
+                technologies and automation solutions.
               </p>
               <form class="newsletter-form">
                 <input
@@ -2165,7 +2234,7 @@
               </form>
               <div class="mt-3">
                 <p><i class="fas fa-clock me-2"></i> Mon-Fri: 8AM-5PM</p>
-                <p><i class="fas fa-clock me-2"></i> Sat: 9AM-4PM</p>
+                <p><i class="fas fa-clock me-2"></i> Sat: 9AM-2PM</p>
                 <p>
                   <i class="fas fa-phone-alt me-2"></i>
                   <a href="tel:+254700484620" title="Call RovaTech"
@@ -2179,26 +2248,256 @@
         <div class="copyright text-center">
           <p class="mb-0">
             &copy; 2025 RovaTech Solutions. All Rights Reserved. | Designed for
-            Kenyan Market and abroad.
+            Kenyan Market and Abroad
           </p>
         </div>
       </div>
     </footer>
 
+    <!-- Floating Cart Button -->
+    <button class="floating-cart-btn" id="floatingCartBtn" title="View Cart">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <!-- Cart Modal -->
+    <div class="overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-header">
+        <h3>Your Cart</h3>
+        <button class="close-cart" id="closeCart">&times;</button>
+      </div>
+      <div class="cart-body" id="cartBody">
+        <!-- Cart items will be dynamically added here -->
+        <div class="empty-cart-message text-center py-5" id="emptyCartMessage">
+          <i class="fas fa-shopping-cart fa-3x mb-3 text-muted"></i>
+          <p>Your cart is empty</p>
+          <a href="#features" class="btn btn-primary-custom">Browse Products</a>
+        </div>
+      </div>
+      <div class="cart-footer">
+        <div class="cart-total">
+          <span>Total:</span>
+          <span id="cartTotal">KSh 0</span>
+        </div>
+        <div class="cart-actions">
+          <button class="checkout-btn" id="checkoutBtn">
+            Proceed to Checkout
+          </button>
+          <a href="#features" class="continue-shopping">Continue Shopping</a>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Navbar scroll effect
-      window.addEventListener("scroll", function () {
-        const navbar = document.querySelector(".navbar");
-        if (window.scrollY > 50) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
+      // Cart functionality
+      let cart = [];
+      const cartCount = document.getElementById("cartCount");
+      const cartBody = document.getElementById("cartBody");
+      const cartTotal = document.getElementById("cartTotal");
+      const emptyCartMessage = document.getElementById("emptyCartMessage");
+      const floatingCartBtn = document.getElementById("floatingCartBtn");
+      const cartModal = document.getElementById("cartModal");
+      const cartOverlay = document.getElementById("cartOverlay");
+      const closeCart = document.getElementById("closeCart");
+      const checkoutBtn = document.getElementById("checkoutBtn");
 
-      // Animation on scroll
+      // Update cart display
+      function updateCartDisplay() {
+        // Update cart count
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.textContent = totalItems;
+
+        // Update cart body
+        if (cart.length === 0) {
+          emptyCartMessage.style.display = "block";
+          cartBody.innerHTML = "";
+          cartBody.appendChild(emptyCartMessage);
+        } else {
+          emptyCartMessage.style.display = "none";
+          cartBody.innerHTML = "";
+
+          cart.forEach((item, index) => {
+            const cartItem = document.createElement("div");
+            cartItem.className = "cart-item";
+            cartItem.innerHTML = `
+              <img src="IMAGES/plc-${
+                item.id === 1
+                  ? "standard"
+                  : item.id === 2
+                  ? "advanced"
+                  : "premium"
+              }.jpg" class="cart-item-img" alt="${item.name}">
+              <div class="cart-item-details">
+                <div class="cart-item-title">${item.name}</div>
+                <div class="cart-item-price">KSh ${item.price.toLocaleString()}</div>
+                <div class="cart-item-controls">
+                  <div class="quantity-control">
+                    <button class="quantity-btn decrease" data-index="${index}">-</button>
+                    <input type="text" class="quantity-input" value="${
+                      item.quantity
+                    }" readonly>
+                    <button class="quantity-btn increase" data-index="${index}">+</button>
+                  </div>
+                  <button class="remove-item" data-index="${index}" title="Remove Item">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+            `;
+            cartBody.appendChild(cartItem);
+          });
+        }
+
+        // Update total
+        const totalPrice = cart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0
+        );
+        cartTotal.textContent = `KSh ${totalPrice.toLocaleString()}`;
+
+        // Add event listeners to new buttons
+        document.querySelectorAll(".decrease").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const index = parseInt(this.getAttribute("data-index"));
+            decreaseQuantity(index);
+          });
+        });
+
+        document.querySelectorAll(".increase").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const index = parseInt(this.getAttribute("data-index"));
+            increaseQuantity(index);
+          });
+        });
+
+        document.querySelectorAll(".remove-item").forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const index = parseInt(this.getAttribute("data-index"));
+            removeFromCart(index);
+          });
+        });
+      }
+
+      // Add to cart
+      function addToCart(id, name, price) {
+        const existingItem = cart.find((item) => item.id === id);
+
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({
+            id: id,
+            name: name,
+            price: price,
+            quantity: 1,
+          });
+        }
+
+        updateCartDisplay();
+
+        // Show confirmation
+        showNotification(`${name} added to cart!`);
+      }
+
+      // Increase quantity
+      function increaseQuantity(index) {
+        cart[index].quantity += 1;
+        updateCartDisplay();
+      }
+
+      // Decrease quantity
+      function decreaseQuantity(index) {
+        if (cart[index].quantity > 1) {
+          cart[index].quantity -= 1;
+        } else {
+          removeFromCart(index);
+        }
+        updateCartDisplay();
+      }
+
+      // Remove from cart
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCartDisplay();
+
+        if (cart.length === 0) {
+          showNotification("Cart is now empty");
+        }
+      }
+
+      // Show notification
+      function showNotification(message) {
+        // Create notification element
+        const notification = document.createElement("div");
+        notification.className = "alert alert-success position-fixed";
+        notification.style.cssText =
+          "top: 20px; right: 20px; z-index: 2000; min-width: 250px;";
+        notification.textContent = message;
+
+        document.body.appendChild(notification);
+
+        // Remove after 3 seconds
+        setTimeout(() => {
+          notification.remove();
+        }, 3000);
+      }
+
+      // Toggle cart modal
+      function toggleCart() {
+        cartModal.classList.toggle("open");
+        cartOverlay.classList.toggle("active");
+        document.body.style.overflow = cartModal.classList.contains("open")
+          ? "hidden"
+          : "";
+      }
+
+      // Initialize cart
       document.addEventListener("DOMContentLoaded", function () {
+        // Add event listeners to "Add to Cart" buttons
+        document.querySelectorAll(".add-to-cart-btn").forEach((button) => {
+          button.addEventListener("click", function () {
+            const id = parseInt(this.getAttribute("data-id"));
+            const name = this.getAttribute("data-name");
+            const price = parseInt(this.getAttribute("data-price"));
+            addToCart(id, name, price);
+          });
+        });
+
+        // Cart modal controls
+        floatingCartBtn.addEventListener("click", toggleCart);
+        closeCart.addEventListener("click", toggleCart);
+        cartOverlay.addEventListener("click", toggleCart);
+
+        // Checkout button
+        checkoutBtn.addEventListener("click", function () {
+          if (cart.length === 0) {
+            showNotification("Your cart is empty!");
+            return;
+          }
+
+          // In a real application, this would redirect to a checkout page
+          alert(
+            "Proceeding to checkout with " +
+              cart.reduce((sum, item) => sum + item.quantity, 0) +
+              " items"
+          );
+          // Here you would typically redirect to a checkout page
+          // window.location.href = 'checkout.html';
+        });
+
+        // Navbar scroll effect
+        window.addEventListener("scroll", function () {
+          const navbar = document.querySelector(".navbar");
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+
+        // Animation on scroll
         const animateElements = document.querySelectorAll(".animate");
 
         const observer = new IntersectionObserver(
@@ -2240,7 +2539,7 @@
           contactForm.addEventListener("submit", function (e) {
             e.preventDefault();
             // Here you would typically send the form data to a server
-            alert("Thank you for your message! We will get back to you soon.");
+            alert("Thank you for your inquiry! We will contact you shortly.");
             contactForm.reset();
           });
         }
@@ -2256,36 +2555,8 @@
           });
         });
 
-        // Read More functionality for Services and About sections
-        const servicesReadMore = document.getElementById("services-read-more");
-        const aboutReadMore = document.getElementById("about-read-more");
-        const aboutContent = document.getElementById("about-content");
-
-        if (servicesReadMore) {
-          servicesReadMore.addEventListener("click", function () {
-            // For Services section, we'll redirect to a services page or show more content
-            // For now, let's scroll to the contact section
-            window.scrollTo({
-              top: document.getElementById("contact").offsetTop - 80,
-              behavior: "smooth",
-            });
-          });
-        }
-
-        if (aboutReadMore && aboutContent) {
-          aboutReadMore.addEventListener("click", function () {
-            aboutContent.parentElement.classList.toggle("content-expanded");
-            aboutReadMore.classList.toggle("expanded");
-
-            if (aboutReadMore.classList.contains("expanded")) {
-              aboutReadMore.innerHTML =
-                'Read Less About Us <i class="fas fa-chevron-up"></i>';
-            } else {
-              aboutReadMore.innerHTML =
-                'Read More About Us <i class="fas fa-chevron-down"></i>';
-            }
-          });
-        }
+        // Initialize cart display
+        updateCartDisplay();
       });
     </script>
   </body>

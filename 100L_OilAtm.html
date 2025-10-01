@@ -1,0 +1,2676 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>
+      100L Oil ATM Machine Kenya | Automated Oil Dispensing Solution | RovaTech
+    </title>
+    <meta
+      name="description"
+      content="RovaTech's 100L Oil ATM Machine - The ultimate automated oil dispensing solution for Kenyan businesses. Accurate metering, MPesa integration, heating system & remote monitoring."
+    />
+    <meta
+      name="keywords"
+      content="oil atm, 100 litres oil atm Kenya, oil vending machine Kenya, oil dispenser price Kenya, oil ATM business Kenya, cooking oil equipment Kenya"
+    />
+    <meta name="author" content="RovaTech" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- External Resources -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/IMAGES/Rovatech-Logo-ICON.ico"
+    />
+    <style>
+      :root {
+        --primary-color: #0056b3;
+        --secondary-color: #ff6b00;
+        --accent-color: #00a859;
+        --dark-color: #1a2a3a;
+        --light-color: #f8f9fa;
+        --text-color: #333333;
+        --light-text: #6c757d;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      /* Floating Cart Button Styles */
+      .floating-cart {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .cart-button {
+        background-color: var(--secondary-color);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        position: relative;
+      }
+
+      .cart-button:hover {
+        background-color: #e05f00;
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: var(--accent-color);
+        color: white;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid white;
+      }
+
+      .cart-panel {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        width: 350px;
+        max-height: 400px;
+        overflow-y: auto;
+        margin-bottom: 15px;
+        display: none;
+      }
+
+      .cart-panel.show {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .cart-header {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .cart-items {
+        padding: 15px;
+      }
+
+      .cart-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #f5f5f5;
+      }
+
+      .cart-item:last-child {
+        border-bottom: none;
+      }
+
+      .cart-item img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-right: 10px;
+      }
+
+      .cart-item-details {
+        flex: 1;
+      }
+
+      .cart-item-title {
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .cart-item-price {
+        color: var(--accent-color);
+        font-weight: bold;
+      }
+
+      .remove-item {
+        color: #ff4d4d;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.2rem;
+        padding: 5px;
+      }
+
+      .cart-footer {
+        padding: 15px;
+        border-top: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+      }
+
+      .checkout-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        width: 100%;
+        margin-top: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .checkout-btn:hover {
+        background-color: #004494;
+      }
+
+      .empty-cart {
+        text-align: center;
+        padding: 20px;
+        color: var(--light-text);
+      }
+
+      /* Responsive adjustments for floating cart */
+      @media (max-width: 768px) {
+        .floating-cart {
+          bottom: 20px;
+          right: 20px;
+        }
+
+        .cart-button {
+          width: 55px;
+          height: 55px;
+          font-size: 1.3rem;
+        }
+
+        .cart-panel {
+          width: 300px;
+          right: 0;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .floating-cart {
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .cart-button {
+          width: 50px;
+          height: 50px;
+          font-size: 1.2rem;
+        }
+
+        .cart-panel {
+          width: 280px;
+        }
+
+        .cart-count {
+          width: 20px;
+          height: 20px;
+          font-size: 0.7rem;
+        }
+      }
+
+      /* Rest of the CSS remains the same as your original code */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 0.5em;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      a {
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .section-padding {
+        padding: 80px 0;
+      }
+
+      /* Top Contact Bar */
+      .top-contact-bar {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 10px 0;
+        font-size: 0.9rem;
+      }
+
+      .contact-info a {
+        color: white;
+        margin-right: 20px;
+      }
+
+      .contact-info a:hover {
+        color: var(--secondary-color);
+      }
+
+      .social-icons-top a {
+        color: white;
+        margin-left: 15px;
+        font-size: 1.1rem;
+      }
+
+      .social-icons-top a:hover {
+        color: var(--secondary-color);
+        transform: translateY(-2px);
+      }
+
+      /* Navigation */
+      .navbar {
+        background-color: var(--dark-color) !important;
+        padding: 15px 0;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        padding: 10px 0;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        font-weight: 800;
+        font-size: 28px;
+        color: white;
+      }
+
+      .navbar-brand img {
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      .navbar-brand span {
+        color: var(--secondary-color);
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: white !important;
+        margin: 0 8px;
+        position: relative;
+        padding: 8px 15px !important;
+        border-radius: 5px;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--secondary-color) !important;
+        background-color: rgba(255, 107, 0, 0.1);
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--secondary-color);
+        transition: width 0.3s;
+      }
+
+      .nav-link:hover:after {
+        width: 100%;
+      }
+
+      /* Dropdown Menu Styling */
+      .dropdown-menu {
+        background-color: var(--dark-color);
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        padding: 10px 0;
+        margin-top: 0;
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+
+      .dropdown:hover .dropdown-menu,
+      .dropdown-menu:hover {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: all;
+      }
+
+      .dropdown-item {
+        color: white !important;
+        padding: 10px 20px;
+        transition: all 0.3s;
+      }
+
+      .dropdown-item:hover {
+        background-color: rgba(255, 107, 0, 0.2);
+        color: var(--secondary-color) !important;
+        padding-left: 25px;
+      }
+
+      .dropdown-toggle::after {
+        margin-left: 5px;
+        transition: transform 0.3s;
+      }
+
+      /* Navbar Toggler Styling */
+      .navbar-toggler {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 5px 10px;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.5);
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        width: 1.2em;
+        height: 1.2em;
+      }
+
+      /* Hero Section - Centered Content */
+      .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("IMAGES/100li.png");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        min-height: 60vh;
+        color: white;
+        display: flex;
+        align-items: center;
+        position: relative;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 30px;
+        justify-content: center;
+      }
+
+      .hero-badge {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 8px 15px;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-badge i {
+        margin-right: 8px;
+        color: var(--secondary-color);
+      }
+
+      /* Product Details Section */
+      .product-details-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin: 50px 0;
+        align-items: start;
+      }
+
+      .product-image-container {
+        position: relative;
+        max-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .product-image {
+        width: auto;
+        height: auto;
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 30px;
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+
+      .product-info {
+        padding: 20px 0;
+      }
+
+      .product-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--dark-color);
+        margin-bottom: 15px;
+      }
+
+      .price-container {
+        margin-bottom: 20px;
+      }
+
+      .current-price {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--accent-color);
+      }
+
+      .original-price {
+        font-size: 1.4rem;
+        text-decoration: line-through;
+        color: #999;
+        margin-left: 10px;
+      }
+
+      .rating {
+        margin-bottom: 20px;
+      }
+
+      .product-features {
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 25px;
+      }
+
+      .product-features li {
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 30px;
+      }
+
+      .product-features li:before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        position: absolute;
+        left: 0;
+        color: var(--accent-color);
+      }
+
+      /* Benefits Section */
+      .benefit-card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s;
+        height: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+        border-top: 4px solid var(--primary-color);
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .benefit-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      /* Profitability Calculator */
+      .calculator-container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+      }
+
+      .calculator-title {
+        color: var(--dark-color);
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .calculator-input-group {
+        margin-bottom: 20px;
+      }
+
+      .calculator-input-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .calculator-input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .calculator-results {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+
+      .result-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .result-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        font-weight: bold;
+        font-size: 1.1rem;
+        color: var(--secondary-color);
+      }
+
+      .profit-highlight {
+        color: var(--accent-color);
+        font-weight: bold;
+      }
+
+      /* Comparison Table */
+      .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .comparison-table th {
+        background-color: var(--light-color);
+        font-weight: 600;
+      }
+
+      .comparison-table tr:hover {
+        background-color: #f5f5f5;
+      }
+
+      .rova-advantage {
+        background-color: rgba(25, 188, 25, 0.1);
+        font-weight: bold;
+      }
+
+      /* FAQ Section */
+      .faq-item {
+        margin-bottom: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+      }
+
+      .faq-question {
+        padding: 15px 20px;
+        background-color: var(--light-color);
+        cursor: pointer;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .faq-answer {
+        padding: 15px 20px;
+        display: none;
+      }
+
+      /* Related Products */
+      .related-products {
+        margin: 60px 0;
+      }
+
+      .product-card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        margin-bottom: 30px;
+        height: 100%;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .product-img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        background: #f9f9f9;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        padding: 15px;
+      }
+
+      .product-card .product-title {
+        font-size: 1.2rem;
+        margin: 10px 0;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+          url("https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 80px 0;
+      }
+
+      .contact-form {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 10px;
+        color: var(--dark-color);
+      }
+
+      .form-control {
+        height: 50px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      textarea.form-control {
+        height: 150px;
+      }
+
+      /* Section Titles */
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+        color: var(--dark-color);
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 4px;
+        background-color: var(--secondary-color);
+        bottom: -10px;
+        left: 0;
+      }
+
+      .section-subtitle {
+        color: var(--light-text);
+        margin-bottom: 50px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Buttons */
+      .btn-primary-custom {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-primary-custom:hover {
+        background-color: #004494;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
+        color: white;
+      }
+
+      .btn-secondary-custom {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-secondary-custom:hover {
+        background-color: #e05f00;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        color: white;
+      }
+
+      .btn-outline-light-custom {
+        border: 2px solid white;
+        color: white;
+        padding: 10px 28px;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .btn-outline-light-custom:hover {
+        background: white;
+        color: var(--dark-color);
+        transform: translateY(-3px);
+      }
+
+      .add-to-cart {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        transition: 0.3s ease;
+        font-weight: 600;
+      }
+
+      .add-to-cart:hover {
+        background: var(--dark-color);
+      }
+
+      .calculate-btn {
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%;
+      }
+
+      .calculate-btn:hover {
+        background-color: #e05a00;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 60px 0 20px;
+      }
+
+      .footer-logo {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-logo img {
+        height: 40px;
+        margin-right: 10px;
+      }
+
+      .footer-logo span {
+        color: var(--secondary-color);
+      }
+
+      .footer-about {
+        margin-bottom: 20px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .footer-links h5 {
+        font-weight: 600;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      .footer-links h5:after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        background-color: var(--secondary-color);
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer-links ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary-color);
+        padding-left: 5px;
+      }
+
+      .social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: all 0.3s;
+      }
+
+      .social-icons a:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-5px);
+      }
+
+      .newsletter-form {
+        display: flex;
+        margin-top: 15px;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px 0 0 5px;
+        font-size: 0.9rem;
+      }
+
+      .newsletter-btn {
+        background: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 0 15px;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .newsletter-btn:hover {
+        background: #e05f00;
+      }
+
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+        margin-top: 40px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.9rem;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .animate {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease;
+      }
+
+      .animate.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .delay-1 {
+        transition-delay: 0.2s;
+      }
+
+      .delay-2 {
+        transition-delay: 0.4s;
+      }
+
+      /* Mobile Dropdown Indicator */
+      .dropdown-toggle .mobile-indicator {
+        display: none;
+        margin-left: 5px;
+        transition: transform 0.3s;
+      }
+
+      .dropdown.show .dropdown-toggle .mobile-indicator {
+        transform: rotate(180deg);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 991px) {
+        .hero-title {
+          font-size: 2.8rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .navbar-collapse {
+          background: var(--dark-color);
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          margin-top: 10px;
+        }
+
+        .navbar-nav {
+          text-align: center;
+        }
+
+        .nav-link {
+          margin: 5px 0;
+          display: block;
+        }
+
+        /* Show mobile indicator for dropdown on small screens */
+        .dropdown-toggle .mobile-indicator {
+          display: inline-block;
+        }
+
+        /* Fix for mobile dropdown - remove hover effects */
+        .dropdown-menu {
+          background-color: rgba(0, 0, 0, 0.3);
+          margin-top: 0;
+          text-align: center;
+          display: none; /* Hide by default on mobile */
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          pointer-events: all;
+        }
+
+        .dropdown.show .dropdown-menu {
+          display: block; /* Show when toggled on mobile */
+        }
+
+        /* Disable hover effects on mobile */
+        .dropdown:hover .dropdown-menu {
+          display: none;
+        }
+
+        .dropdown.show .dropdown-menu {
+          display: block;
+        }
+
+        .product-details-container {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.3rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .section-padding {
+          padding: 60px 0;
+        }
+
+        .contact-form {
+          padding: 30px 20px;
+        }
+
+        .top-contact-bar {
+          text-align: center;
+        }
+
+        .contact-info,
+        .social-icons-top {
+          justify-content: center;
+          margin-bottom: 5px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-badges {
+          justify-content: center;
+        }
+
+        .btn-primary-custom,
+        .btn-secondary-custom,
+        .btn-outline-light-custom {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        .d-flex.gap-3 {
+          flex-direction: column;
+        }
+
+        .navbar-brand {
+          font-size: 24px;
+        }
+
+        .navbar-brand img {
+          height: 40px;
+        }
+      }
+      .breadcrumb {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 20px;
+        justify-content: center;
+      }
+
+      .breadcrumb-item a {
+        color: var(--secondary-color);
+      }
+
+      .breadcrumb-item.active {
+        color: #ccc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Top Contact Bar -->
+    <div class="top-contact-bar">
+      <div class="container">
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center"
+        >
+          <div class="contact-info d-flex flex-wrap justify-content-center">
+            <a href="tel:+254700484620" title="Call">
+              <i class="fas fa-phone-alt me-2"></i> +254 700 484 620
+            </a>
+            <a href="mailto:rovatechengineering@gmail.com" title="Email">
+              <i class="fas fa-envelope me-2"></i>
+              rovatechengineering@gmail.com
+            </a>
+            <a
+              href="https://goo.gl/maps/example"
+              target="_blank"
+              title="Location"
+            >
+              <i class="fas fa-map-marker-alt me-2"></i> Juja, JKUAT Gate B
+            </a>
+          </div>
+          <div class="social-icons-top d-flex">
+            <a
+              href="https://www.facebook.com/me/"
+              aria-label="Facebook"
+              title="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/rova_tech1" aria-label="Twitter" title="X">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/rovatech"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/rovatechengineering/"
+              aria-label="Instagram"
+              title="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.youtube.com/@Rovatechengineering"
+              aria-label="YouTube"
+              title="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="index.html"
+          title="RovaTech Solutions Home"
+        >
+          <img
+            src="IMAGES/Rovatech-Logo-ICON.png"
+            alt="RovaTech Solutions Logo"
+          />
+          Rova<span>Tech</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" title="Home Page">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                title="View Our Products"
+                onclick="window.location.href='Products.html'; return false;"
+              >
+                Products <i class="fas fa-chevron-down mobile-indicator"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    class="dropdown-item active"
+                    href="Oilatms.html"
+                    title="Learn about our Oil ATM"
+                    >Oil ATMs</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="Milkatms.html"
+                    title="Learn about our Milk ATM"
+                    >Milk ATMs</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="WaterAtms.html"
+                    title="Learn about our Water ATM"
+                    >Water ATMs</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="Riceatm.html"
+                    title="Learn about our Rice ATM"
+                    >Rice ATM</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="RovatechPLC.html"
+                    title="Lear about our Rovatech PLC"
+                    >Rovatech PLC</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="WaterTreatment.html"
+                    title="Water Treatment"
+                    >Water Treatment Systems</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="Products.html"
+                    title="View All Our Products"
+                    >View All Products</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="customautomation.html"
+                title="IoT Solutions"
+                >IoT Solutions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Services.html" title="Our Services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="dropdown-item active"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                title="View Blog"
+                onclick="window.location.href='Blog.html'; return false;"
+              >
+                Blog <i class="fas fa-chevron-down mobile-indicator"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="Hot to start an Oil atm Business.html"
+                    title="Learn about our Oil atm Business guide"
+                  >
+                    How to start Oil ATM Business
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="How to start a milk atm Business.html"
+                    title="Learn about our Milk ATM business guide"
+                  >
+                    How to start Milk ATM Business
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="How to start a water vending Bs.html"
+                    title="Learn about our Water ATM Business Guide"
+                  >
+                    How to start Water Vending Business
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="AboutRovatech.html"
+                title="About RovaTech"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ContactUs.html" title="Contact Us"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section - Centered -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content animate">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item">
+                <a href="Products.html">Products</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="Oilatms.html">Oil ATMs</a>
+              </li>
+              <li class="breadcrumb-item active">100 litres Oil Atm</li>
+            </ol>
+          </nav>
+          <h1 class="hero-title">100L Oil ATM Machine</h1>
+          <p class="hero-subtitle">
+            The ultimate automated oil dispensing solution for Kenyan
+            businesses. Start your profitable oil vending business today!
+          </p>
+          <div class="d-flex gap-3 flex-wrap justify-content-center">
+            <a
+              href="#product-details"
+              class="btn btn-primary-custom"
+              title="View Product Details"
+            >
+              View Details
+            </a>
+          </div>
+          <div class="hero-badges">
+            <div class="hero-badge" title="M-Pesa Payment Integration">
+              <i class="fas fa-check-circle"></i> M-Pesa Integration
+            </div>
+            <div class="hero-badge" title="Accurate Metering">
+              <i class="fas fa-check-circle"></i> Accurate Metering
+            </div>
+            <div class="hero-badge" title="Heating System">
+              <i class="fas fa-check-circle"></i> Heating System
+            </div>
+            <div class="hero-badge" title="1 Year Warranty">
+              <i class="fas fa-check-circle"></i> 1 Year Warranty
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Details -->
+    <section id="product-details" class="section-padding">
+      <div class="container">
+        <h2 class="section-title text-center animate">
+          100 Litres Oil ATM Machine
+        </h2>
+        <p class="section-subtitle text-center animate delay-1">
+          High-quality automated oil dispensing solution designed for the Kenyan
+          market
+        </p>
+
+        <div class="product-details-container">
+          <div class="product-image-container animate">
+            <img
+              src="IMAGES/100li.png"
+              alt="100L Oil ATM Machine"
+              class="product-image"
+            />
+            <div class="product-badge">Best Seller</div>
+          </div>
+
+          <div class="product-info animate delay-1">
+            <h3 class="product-title">100 Litres Professional Oil ATM</h3>
+            <div class="price-container">
+              <span class="current-price">Ksh 60,000</span>
+              <span class="original-price">Ksh 65,000</span>
+              <span class="badge bg-danger ms-2">Save Ksh 5,000</span>
+            </div>
+
+            <div class="rating">
+              <span class="text-warning">★★★★☆</span>
+              <span class="ms-2">4.0/5 (12 Reviews)</span>
+            </div>
+
+            <p class="mb-4">
+              Our <a href="100L_OilAtm.html">100L Oil ATM </a>is designed for
+              high-volume oil vending businesses. With advanced features and
+              robust construction, it's the perfect solution for entrepreneurs
+              looking to tap into Kenya's thriving cooking oil market.
+            </p>
+
+            <ul class="product-features">
+              <li>100L capacity - ideal for medium to large businesses</li>
+              <li>Accurate oil metering (as low as Ksh 10)</li>
+              <li>MPesa & cash payment integration</li>
+              <li>Heating mechanism for cold seasons</li>
+              <li>Remote sales monitoring via SMS</li>
+              <li>
+                100L
+                <a
+                  href="https://www.marlinwire.com/blog/food-grade-stainless-steel-facts"
+                  >Food grade Stainless steel</a
+                >
+                storage tank
+              </li>
+              <li>Low power consumption & solar compatible</li>
+              <li>4 caster wheels for easy mobility</li>
+              <li>1-year warranty with service support</li>
+            </ul>
+
+            <div class="d-grid gap-2">
+              <button class="add-to-cart">
+                <i class="fas fa-cart-plus me-2"></i> Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Cart Button -->
+    <div class="floating-cart">
+      <div class="cart-panel" id="cartPanel">
+        <div class="cart-header">
+          <h5 class="mb-0">Your Cart</h5>
+          <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+          <!-- Cart items will be added here dynamically -->
+          <div class="empty-cart">
+            <i class="fas fa-shopping-cart fa-2x mb-3"></i>
+            <p>Your cart is empty</p>
+          </div>
+        </div>
+        <div class="cart-footer">
+          <span>Total:</span>
+          <span id="cartTotal">Ksh 0</span>
+        </div>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+      <button class="cart-button" id="cartButton">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+
+    <!-- Key Benefits -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <h2 class="section-title text-center animate">
+          Why Choose Our 100L Oil vending machine?
+        </h2>
+        <p class="text-center mb-5 animate delay-1">
+          Designed specifically for the Kenyan market with features that matter
+          to your business
+        </p>
+
+        <div class="row">
+          <div class="col-md-4 animate delay-1">
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fas fa-tachometer-alt"></i>
+              </div>
+              <h4>Accurate Metering</h4>
+              <p>
+                Our oil ATMs provide precise dispensing with accuracy down to
+                Ksh 10, ensuring customers get exactly what they pay for.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 animate delay-1">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fas fa-mobile-alt"></i></div>
+              <h4>MPesa Integration</h4>
+              <p>
+                Accept payments via MPesa, coins and Card (Tap to pay). LIPA NA
+                MPESA integration makes transactions seamless for your
+                customers.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 animate delay-1">
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fas fa-thermometer-half"></i>
+              </div>
+              <h4>Heating System</h4>
+              <p>
+                Built-in heating mechanism ensures optimal oil viscosity during
+                cold seasons, maintaining consistent flow and quality.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-md-4 animate delay-2">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+              <h4>Remote Monitoring</h4>
+              <p>
+                Track your sales, inventory, and machine performance remotely
+                via SMS alerts and reports.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 animate delay-2">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fas fa-cogs"></i></div>
+              <h4>Easy Maintenance</h4>
+              <p>
+                Self-priming and cleaning pump system with accessible components
+                make maintenance simple, reducing downtime.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 animate delay-2">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fas fa-headset"></i></div>
+              <h4>Dedicated Support</h4>
+              <p>
+                Comprehensive after-sales support, training, and warranty
+                services across Kenya.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profitability Calculator -->
+    <section class="section-padding">
+      <div class="container">
+        <h2 class="section-title text-center animate">
+          Profitability Calculator
+        </h2>
+        <p class="text-center mb-5 animate delay-1">
+          Calculate your potential earnings with our
+          <a href="100L_OilAtm.html">Oil Vending machine </a>
+        </p>
+
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="calculator-container animate delay-2">
+              <h3 class="calculator-title">Estimate Your Monthly Profit</h3>
+              <p>
+                Fill in your expected business metrics to see your potential
+                earnings:
+              </p>
+
+              <div class="calculator-input-group">
+                <label for="dailySales">Daily Sales (Litres)</label>
+                <input
+                  type="number"
+                  id="dailySales"
+                  min="10"
+                  max="200"
+                  value="80"
+                />
+              </div>
+
+              <div class="calculator-input-group">
+                <label for="sellingPrice">Selling Price per Litre (Ksh)</label>
+                <input
+                  type="number"
+                  id="sellingPrice"
+                  min="100"
+                  max="200"
+                  value="150"
+                />
+              </div>
+
+              <div class="calculator-input-group">
+                <label for="costPrice">Cost Price per Litre (Ksh)</label>
+                <input
+                  type="number"
+                  id="costPrice"
+                  min="80"
+                  max="140"
+                  value="120"
+                />
+              </div>
+
+              <div class="calculator-input-group">
+                <label for="operatingDays">Operating Days per Month</label>
+                <input
+                  type="number"
+                  id="operatingDays"
+                  min="20"
+                  max="31"
+                  value="26"
+                />
+              </div>
+
+              <button class="calculate-btn" id="calculateProfit">
+                Calculate Profit
+              </button>
+
+              <div
+                class="calculator-results"
+                id="profitResults"
+                style="display: none"
+              >
+                <h4>Your Profit Projection</h4>
+                <div class="result-item">
+                  <span>Daily Revenue:</span>
+                  <span id="dailyRevenue">0</span>
+                </div>
+                <div class="result-item">
+                  <span>Daily Profit:</span>
+                  <span id="dailyProfit">0</span>
+                </div>
+                <div class="result-item">
+                  <span>Monthly Revenue:</span>
+                  <span id="monthlyRevenue">0</span>
+                </div>
+                <div class="result-item">
+                  <span>Monthly Profit:</span>
+                  <span class="profit-highlight" id="monthlyProfit">0</span>
+                </div>
+                <div class="result-item">
+                  <span>ROI Period (Months):</span>
+                  <span id="roiPeriod">0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <h2 class="section-title text-center animate">How We Compare</h2>
+        <p class="text-center mb-5 animate delay-1">
+          See why RovaTech stands out in the Kenyan oil ATM market
+        </p>
+
+        <div class="table-responsive animate delay-2">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>RovaTech 100L</th>
+                <th>Standard Oil ATMs</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Price</td>
+                <td class="rova-advantage">Ksh 60,000 (Competitive)</td>
+                <td>Ksh 65,000 - Ksh 80,000</td>
+              </tr>
+              <tr>
+                <td>Warranty</td>
+                <td class="rova-advantage">1 Year Comprehensive</td>
+                <td>Typically 6 months (varies)</td>
+              </tr>
+              <tr>
+                <td>Payment Options</td>
+                <td class="rova-advantage">
+                  MPesa, Cash, Coins & card (Tap to pay)
+                </td>
+                <td>Usually limited options</td>
+              </tr>
+              <tr>
+                <td>Heating System</td>
+                <td class="rova-advantage">Built-in heating mechanism</td>
+                <td>Basic or none</td>
+              </tr>
+              <tr>
+                <td>Remote Monitoring</td>
+                <td class="rova-advantage">SMS-based sales tracking</td>
+                <td>Limited or unavailable</td>
+              </tr>
+              <tr>
+                <td>After-Sales Support</td>
+                <td class="rova-advantage">Nationwide service network</td>
+                <td>Varies by supplier</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Opportunity Section -->
+    <section class="section-padding">
+      <div class="container">
+        <h2 class="section-title animate">
+          Is Oil ATM Business Profitable in Kenya?
+        </h2>
+
+        <div class="row">
+          <div class="col-lg-8 animate delay-1">
+            <p>
+              Yes! The oil ATM business continues to be one of the most
+              profitable ventures in Kenya. With cooking oil being a daily
+              essential for most households, the demand is consistent and
+              growing.
+            </p>
+
+            <h4 class="mt-4">Profit Potential</h4>
+            <p>
+              With a <a href="100L_OilAtm.html">100L Oil ATM</a>, you can
+              expect:
+            </p>
+            <ul>
+              <li>
+                <strong>High ROI:</strong> Many operators recover their
+                investment within 6-9 months
+              </li>
+              <li>
+                <strong>Daily Sales:</strong> Well-positioned ATMs can sell
+                80-150 liters per day
+              </li>
+              <li>
+                <strong>Profit Margin:</strong> Typically Ksh 20-40 per liter
+                after costs
+              </li>
+              <li>
+                <strong>Multiple Revenue Streams:</strong> Bulk sales to
+                restaurants, hotels, and institutions
+              </li>
+            </ul>
+
+            <h4 class="mt-4">Why Now is the Right Time</h4>
+            <ul>
+              <li>Rising demand for affordable, quality cooking oil</li>
+              <li>
+                Increasing preference for unpackaged oil over expensive packaged
+                alternatives
+              </li>
+              <li>Growing population and urbanization creating new markets</li>
+              <li>Support from government for small business enterprises</li>
+            </ul>
+
+            <div class="mt-4">
+              <a
+                href="Hot to start an Oil atm Business.html"
+                title="How to start an Oil atm Business in kenya"
+                class="btn btn-primary-custom me-2"
+                >Read our guide on how to start oil atm Business in kenya</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-4 animate delay-2">
+            <div class="benefit-card h-100">
+              <h4>Quick ROI Calculation</h4>
+              <div class="mb-3">
+                <p>
+                  <strong>Initial Investment:</strong> Ksh 60,000 (machine) +
+                  Ksh 15,000 (setup)
+                </p>
+                <p>
+                  <strong>Daily Sales (avg):</strong> 80 liters @ Ksh 150/liter
+                  = Ksh 12,000
+                </p>
+                <p>
+                  <strong>Daily Profit (est):</strong> Ksh 2,400 - Ksh 3,200
+                </p>
+                <p><strong>Payback Period:</strong> 2-3 months</p>
+              </div>
+              <p class="text-muted">
+                <small
+                  >Actual results may vary based on location, pricing, and
+                  operational efficiency.</small
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding bg-light">
+      <div class="container">
+        <h2 class="section-title text-center animate">
+          Frequently Asked Questions
+        </h2>
+
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="faq-item animate delay-1">
+              <div class="faq-question">
+                What permits do I need to operate an oil ATM in Kenya?
+                <i class="fas fa-chevron-down float-end"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  You'll need a business permit from your county government, a
+                  health certificate, and compliance with Kenya Bureau of
+                  Standards regulations. We guide our customers through this
+                  process and provide the necessary documentation for approval.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item animate delay-1">
+              <div class="faq-question">
+                How do I maintain the oil ATM?
+                <i class="fas fa-chevron-down float-end"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Our oil ATMs feature a self-cleaning system that automates
+                  most maintenance. Daily cleaning of external surfaces and
+                  weekly deep cleaning as per our manual is recommended. We
+                  provide comprehensive training and support for all maintenance
+                  procedures.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item animate delay-2">
+              <div class="faq-question">
+                Does the heating system increase power consumption
+                significantly?
+                <i class="fas fa-chevron-down float-end"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  No, our heating system is energy-efficient and only activates
+                  when needed during cold weather. It's designed to maintain
+                  optimal oil viscosity with minimal power consumption.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item animate delay-2">
+              <div class="faq-question">
+                What training do you provide?
+                <i class="fas fa-chevron-down float-end"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  We provide comprehensive training covering machine operation,
+                  oil handling, hygiene practices, basic troubleshooting, and
+                  business management tips. Training is conducted during
+                  installation and includes manuals and ongoing support.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item animate delay-2">
+              <div class="faq-question">
+                Do you offer installation services?
+                <i class="fas fa-chevron-down float-end"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, we provide professional installation services across
+                  Kenya. Our technicians will install the machine, set up
+                  payment systems, and ensure everything is working perfectly
+                  before handover.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-products container">
+      <h2 class="text-center mb-5 animate">Explore Other Products</h2>
+      <div class="row">
+        <div class="col-md-3 animate delay-1">
+          <div class="product-card">
+            <a href="Desktop_OilATM.html"
+              ><img
+                src="IMAGES/OILATM.jpg"
+                alt="Desktop Oil ATM"
+                class="product-img"
+            /></a>
+            <div class="product-info text-center">
+              <h3 class="product-title">Desktop Oil ATM</h3>
+              <div class="price-container">
+                <span class="current-price">Ksh 25,000</span>
+                <span class="original-price">Ksh 28,000</span>
+              </div>
+              <a href="Desktop_OilATM.html" class="btn btn-primary-custom mt-2"
+                >View Product</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 animate delay-1">
+          <div class="product-card">
+            <div class="product-badge">New</div>
+            <a href="50LOilatm.html"
+              ><img
+                src="IMAGES/50li.png"
+                alt="50 litres Oil ATM"
+                class="product-img"
+            /></a>
+            <div class="product-info text-center">
+              <h3 class="product-title">50 Litres Oil ATM</h3>
+              <div class="price-container">
+                <span class="current-price">Ksh 40,000</span>
+              </div>
+              <a href="50LOilatm.html" class="btn btn-primary-custom mt-2"
+                >View Product</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 animate delay-2">
+          <div class="product-card">
+            <a href="20L_OilAtm.html"
+              ><img
+                src="IMAGES/20LI.jpg"
+                alt="20 litres Oil ATM"
+                class="product-img"
+            /></a>
+            <div class="product-info text-center">
+              <h3 class="product-title">20L Oil ATM</h3>
+              <div class="price-container">
+                <span class="original-price">Ksh 35,000</span>
+                <span class="current-price">Ksh 30,000</span>
+              </div>
+              <a href="20L_OilAtm.html" class="btn btn-primary-custom mt-2"
+                >View Product</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 animate delay-2">
+          <div class="product-card">
+            <div class="product-badge">Popular</div>
+            <a href="2taps_CabinettypeWateratm.html"
+              ><img
+                src="IMAGES/wateratm2taps.jpg"
+                alt="2 Taps Water Refill Station"
+                class="product-img"
+            /></a>
+            <div class="product-info text-center">
+              <h3 class="product-title">Water Refill Station</h3>
+              <div class="price-container">
+                <span class="current-price">Ksh 110,000</span>
+              </div>
+              <a
+                href="2taps_CabinettypeWateratm.html"
+                class="btn btn-primary-custom mt-2"
+                >View Product</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 animate delay-2">
+          <div class="product-card">
+            <div class="product-badge">Popular</div>
+            <a href="WaterTreatment.html"
+              ><img
+                src="IMAGES/RO-PURIFIER-1.png"
+                alt="RO Water Purifier"
+                class="product-img"
+            /></a>
+            <div class="product-info text-center">
+              <h3 class="product-title">RO Water Purifier</h3>
+              <div class="price-container">
+                <span class="current-price">Ksh 250,000</span>
+              </div>
+              <a href="WaterTreatment.html" class="btn btn-primary-custom mt-2"
+                >View Product</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="contact-section"
+      aria-labelledby="contact-heading"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mb-5 mb-lg-0 animate">
+            <h2 id="contact-heading" class="text-white mb-4">Get In Touch</h2>
+            <p class="text-white mb-5">
+              Ready to start your oil vending business? Contact our team for a
+              free consultation or request a quote for your project.
+            </p>
+
+            <div class="mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <i
+                  class="fas fa-map-marker-alt fa-2x text-secondary me-3"
+                  aria-hidden="true"
+                ></i>
+                <div>
+                  <h3 class="text-white mb-0">Location</h3>
+                  <p class="text-white-100 mb-0">
+                    <a
+                      href="https://www.google.com/maps/search/Juja+JKUAT+GATE+B+Sunrise+Street"
+                      class="text-white-100 mb-0"
+                      >Juja JKUAT GATE B (Sunrise Street)</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <i
+                  class="fas fa-phone-alt fa-2x text-secondary me-3"
+                  aria-hidden="true"
+                ></i>
+                <div>
+                  <h3 class="text-white mb-0">Phone</h3>
+                  <p>
+                    <a href="tel:+254700484620" class="text-white-100 mb-0"
+                      >+254 700 484 620</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <div class="d-flex align-items-center mb-3">
+                <i
+                  class="fas fa-envelope fa-2x text-secondary me-3"
+                  aria-hidden="true"
+                ></i>
+                <div>
+                  <h3 class="text-white mb-0">Email</h3>
+                  <p>
+                    <a
+                      href="mailto:rovatechengineering@gmail.com"
+                      class="text-white-100 mb-0"
+                      >rovatechengineering@gmail.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5">
+              <h3 class="text-white mb-3">Follow Us</h3>
+              <div class="social-icons">
+                <a
+                  href="https://www.facebook.com/me/"
+                  target="_blank"
+                  aria-label="Follow us on Facebook"
+                >
+                  <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://x.com/rova_tech1"
+                  target="_blank"
+                  aria-label="Follow us on Twitter"
+                >
+                  <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/rovatech"
+                  target="_blank"
+                  aria-label="Follow us on LinkedIn"
+                >
+                  <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/rovatechengineering/"
+                  target="_blank"
+                  aria-label="Follow us on Instagram"
+                >
+                  <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="https://www.youtube.com/@Rovatechengineering"
+                  target="_blank"
+                  aria-label="Follow us on YouTube"
+                >
+                  <i class="fab fa-youtube" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 animate delay-1">
+            <div class="contact-form">
+              <h3 class="mb-4">Request a Quote</h3>
+              <form id="contactForm">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="name"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="phone"
+                    placeholder="Your Phone"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="interest" class="form-label"
+                    >I'm interested in...</label
+                  >
+                  <select class="form-select" id="interest">
+                    <option selected>Select Product</option>
+                    <option>20L Oil ATM Machine</option>
+                    <option>50L Oil ATM Machine</option>
+                    <option>100L Oil ATM</option>
+                    <option>Milk Dispensing Machine</option>
+                    <option>Water Dispensing Machine</option>
+                    <option>Other Inquiry</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Your Message</label>
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    rows="5"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-secondary-custom w-100">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="footer-logo">
+              <img
+                src="IMAGES/Rovatech-Logo-ICON.png"
+                alt="RovaTech Solutions Logo"
+              />
+              Rova<span>Tech</span>
+            </div>
+            <p class="footer-about">
+              Leading manufacturer of automated dispensing machines and custom
+              automation solutions for various industries in Kenya and beyond.
+            </p>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/me/"
+                target="_blank"
+                aria-label="Follow us on Facebook"
+              >
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              </a>
+              <a
+                href="https://x.com/rova_tech1"
+                target="_blank"
+                aria-label="Follow us on Twitter"
+              >
+                <i class="fab fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/rovatech"
+                target="_blank"
+                aria-label="Follow us on LinkedIn"
+              >
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/rovatechengineering/"
+                target="_blank"
+                aria-label="Follow us on Instagram"
+              >
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/@Rovatechengineering"
+                target="_blank"
+                aria-label="Follow us on YouTube"
+              >
+                <i class="fab fa-youtube" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+            <div class="footer-links">
+              <h5>Quick Links</h5>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+            <div class="footer-links">
+              <h5>Products</h5>
+              <ul>
+                <li><a href="Oilatms.html">Oil ATMs</a></li>
+                <li><a href="Milkatms.html">Milk ATMs</a></li>
+                <li><a href="WaterAtms.html">Water ATMs</a></li>
+                <li><a href="Riceatm.html">Rice ATMs</a></li>
+                <li>
+                  <a href="RovatechPLC.html">PLC</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-links">
+              <h5>Newsletter</h5>
+              <p>
+                Subscribe to our newsletter for the latest updates and offers.
+              </p>
+              <form class="mb-3">
+                <div class="input-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Your Email"
+                  />
+                  <button class="btn btn-secondary-custom" type="submit">
+                    Subscribe
+                  </button>
+                </div>
+              </form>
+              <p>
+                <i class="fas fa-clock me-2" aria-hidden="true"></i> Mon-Fri:
+                8AM-5PM
+              </p>
+              <p>
+                <i class="fas fa-clock me-2" aria-hidden="true"></i> Sat:
+                9AM-4PM
+              </p>
+              <p>
+                <i class="fas fa-phone-alt me-2" aria-hidden="true"></i>
+                <a href="tel:+254700484620" class="text-white-100 mb-0"
+                  >+254 700 484 620</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="copyright text-center">
+          <p class="mb-0">
+            &copy; 2025 RovaTech Solutions. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Animation on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const animateElements = document.querySelectorAll(".animate");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animated");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        animateElements.forEach((element) => {
+          observer.observe(element);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById("contactForm");
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Thank you for your inquiry! We will contact you shortly.");
+            this.reset();
+          });
+        }
+
+        // FAQ toggle functionality
+        document.querySelectorAll(".faq-question").forEach((question) => {
+          question.addEventListener("click", () => {
+            const answer = question.nextElementSibling;
+            const icon = question.querySelector("i");
+
+            if (answer.style.display === "block") {
+              answer.style.display = "none";
+              icon.classList.remove("fa-chevron-up");
+              icon.classList.add("fa-chevron-down");
+            } else {
+              answer.style.display = "block";
+              icon.classList.remove("fa-chevron-down");
+              icon.classList.add("fa-chevron-up");
+            }
+          });
+        });
+
+        // Cart functionality
+        let cartCount = 0;
+        const cartButton = document.querySelector(".add-to-cart");
+        const floatingCartButton = document.getElementById("cartButton");
+        const cartPanel = document.getElementById("cartPanel");
+        const cartCountElement = document.getElementById("cartCount");
+        const closeCartButton = document.getElementById("closeCart");
+        const cartItemsElement = document.getElementById("cartItems");
+        const cartTotalElement = document.getElementById("cartTotal");
+
+        // Initialize cart
+        let cartItems = [];
+
+        // Toggle cart panel
+        floatingCartButton.addEventListener("click", function () {
+          cartPanel.classList.toggle("show");
+        });
+
+        // Close cart panel
+        closeCartButton.addEventListener("click", function () {
+          cartPanel.classList.remove("show");
+        });
+
+        // Close cart panel when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !floatingCartButton.contains(event.target) &&
+            !cartPanel.contains(event.target)
+          ) {
+            cartPanel.classList.remove("show");
+          }
+        });
+
+        // Add to cart functionality
+        if (cartButton) {
+          cartButton.addEventListener("click", function () {
+            cartCount++;
+            cartCountElement.textContent = cartCount;
+
+            // Add item to cart
+            const product = {
+              id: Date.now(),
+              name: "100 Litres Oil ATM",
+              price: 60000,
+              quantity: 1,
+              image: "IMAGES/100li.png",
+            };
+
+            // Check if item already exists in cart
+            const existingItemIndex = cartItems.findIndex(
+              (item) => item.name === product.name
+            );
+
+            if (existingItemIndex !== -1) {
+              cartItems[existingItemIndex].quantity++;
+            } else {
+              cartItems.push(product);
+            }
+
+            // Update cart display
+            updateCartDisplay();
+
+            // Visual feedback
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-check"></i> Added to Cart!';
+            this.style.backgroundColor = "#28a745";
+
+            setTimeout(() => {
+              this.innerHTML = originalText;
+              this.style.backgroundColor = "";
+            }, 2000);
+          });
+        }
+
+        // Update cart display
+        function updateCartDisplay() {
+          // Clear current items
+          cartItemsElement.innerHTML = "";
+
+          // Calculate total
+          let total = 0;
+
+          if (cartItems.length === 0) {
+            cartItemsElement.innerHTML = `
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-cart fa-2x mb-3"></i>
+                            <p>Your cart is empty</p>
+                        </div>
+                    `;
+          } else {
+            cartItems.forEach((item) => {
+              const itemTotal = item.price * item.quantity;
+              total += itemTotal;
+
+              const cartItemElement = document.createElement("div");
+              cartItemElement.className = "cart-item";
+              cartItemElement.innerHTML = `
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="cart-item-details">
+                                <div class="cart-item-title">${item.name}</div>
+                                <div class="cart-item-price">Ksh ${item.price.toLocaleString()}</div>
+                                <div>Qty: ${item.quantity}</div>
+                            </div>
+                            <button class="remove-item" data-id="${item.id}">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        `;
+
+              cartItemsElement.appendChild(cartItemElement);
+            });
+
+            // Add remove item functionality
+            document.querySelectorAll(".remove-item").forEach((button) => {
+              button.addEventListener("click", function () {
+                const itemId = parseInt(this.getAttribute("data-id"));
+                removeFromCart(itemId);
+              });
+            });
+          }
+
+          // Update total
+          cartTotalElement.textContent = `Ksh ${total.toLocaleString()}`;
+        }
+
+        // Remove item from cart
+        function removeFromCart(itemId) {
+          cartItems = cartItems.filter((item) => item.id !== itemId);
+          cartCount = cartItems.reduce(
+            (total, item) => total + item.quantity,
+            0
+          );
+          cartCountElement.textContent = cartCount;
+          updateCartDisplay();
+        }
+
+        // Profitability Calculator
+        document
+          .getElementById("calculateProfit")
+          .addEventListener("click", function () {
+            // Get input values
+            const dailySales =
+              parseInt(document.getElementById("dailySales").value) || 80;
+            const sellingPrice =
+              parseInt(document.getElementById("sellingPrice").value) || 150;
+            const costPrice =
+              parseInt(document.getElementById("costPrice").value) || 120;
+            const operatingDays =
+              parseInt(document.getElementById("operatingDays").value) || 26;
+
+            // Calculate values
+            const dailyRevenue = dailySales * sellingPrice;
+            const dailyProfit = dailySales * (sellingPrice - costPrice);
+            const monthlyRevenue = dailyRevenue * operatingDays;
+            const monthlyProfit = dailyProfit * operatingDays;
+
+            // Calculate ROI period (assuming machine cost is Ksh 60,000)
+            const machineCost = 60000;
+            const roiPeriod = Math.ceil(machineCost / monthlyProfit);
+
+            // Format numbers with commas
+            function formatNumber(num) {
+              return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            // Update results
+            document.getElementById("dailyRevenue").textContent =
+              "Ksh " + formatNumber(dailyRevenue);
+            document.getElementById("dailyProfit").textContent =
+              "Ksh " + formatNumber(dailyProfit);
+            document.getElementById("monthlyRevenue").textContent =
+              "Ksh " + formatNumber(monthlyRevenue);
+            document.getElementById("monthlyProfit").textContent =
+              "Ksh " + formatNumber(monthlyProfit);
+            document.getElementById("roiPeriod").textContent =
+              roiPeriod + " months";
+
+            // Show results
+            document.getElementById("profitResults").style.display = "block";
+          });
+      });
+    </script>
+  </body>
+</html>

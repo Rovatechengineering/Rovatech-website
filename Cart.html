@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="Oil atms, Milk atms, Water atm,Oil atm Price,Dispensing systems, water refill stations, shopping cart, checkout"
+    />
+    <meta
+      name="description"
+      content="Shopping cart for RovaTech Solutions - Manufacturer of advanced ATM-style dispensing machines for oil, milk, water, rice, and custom automation solutions"
+    />
+    <title>
+      Shopping Cart | RovaTech Solutions | Automated Dispensing Machines
+    </title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/IMAGES/Rovatech-Logo-ICON.ico"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #0056b3;
+        --secondary-color: #ff6b00;
+        --accent-color: #00a859;
+        --dark-color: #1a2a3a;
+        --light-color: #f8f9fa;
+        --text-color: #333333;
+        --light-text: #6c757d;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 0.5em;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      a {
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .section-padding {
+        padding: 80px 0;
+      }
+
+      /* Top Contact Bar */
+      .top-contact-bar {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 10px 0;
+        font-size: 0.9rem;
+      }
+
+      .contact-info a {
+        color: white;
+        margin-right: 20px;
+      }
+
+      .contact-info a:hover {
+        color: var(--secondary-color);
+      }
+
+      .social-icons-top a {
+        color: white;
+        margin-left: 15px;
+        font-size: 1.1rem;
+      }
+
+      .social-icons-top a:hover {
+        color: var(--secondary-color);
+        transform: translateY(-2px);
+      }
+
+      /* Navigation */
+      .navbar {
+        background-color: var(--dark-color) !important;
+        padding: 15px 0;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        padding: 10px 0;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        display: flex;
+        align-items: center;
+        font-weight: 800;
+        font-size: 28px;
+        color: white;
+      }
+
+      .navbar-brand img {
+        height: 50px;
+        margin-right: 10px;
+      }
+
+      .navbar-brand span {
+        color: var(--secondary-color);
+      }
+
+      .nav-link {
+        font-weight: 500;
+        color: white !important;
+        margin: 0 8px;
+        position: relative;
+        padding: 8px 15px !important;
+        border-radius: 5px;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--secondary-color) !important;
+        background-color: rgba(255, 107, 0, 0.1);
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--secondary-color);
+        transition: width 0.3s;
+      }
+
+      .nav-link:hover:after {
+        width: 100%;
+      }
+
+      /* Dropdown Menu Styling */
+      .dropdown-menu {
+        background-color: var(--dark-color);
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        padding: 10px 0;
+        margin-top: 0;
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+
+      .dropdown:hover .dropdown-menu,
+      .dropdown-menu:hover {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: all;
+      }
+
+      .dropdown-item {
+        color: white !important;
+        padding: 10px 20px;
+        transition: all 0.3s;
+      }
+
+      .dropdown-item:hover {
+        background-color: rgba(255, 107, 0, 0.2);
+        color: var(--secondary-color) !important;
+        padding-left: 25px;
+      }
+
+      .dropdown-toggle::after {
+        margin-left: 5px;
+        transition: transform 0.3s;
+      }
+
+      /* Navbar Toggler Styling */
+      .navbar-toggler {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 5px 10px;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.5);
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        width: 1.2em;
+        height: 1.2em;
+      }
+
+      /* Breadcrumb */
+      .breadcrumb-section {
+        background-color: #f5f5f5;
+        padding: 15px 0;
+        margin-bottom: 30px;
+      }
+
+      /* Cart Section */
+      .cart-section {
+        padding: 40px 0;
+      }
+
+      .cart-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: var(--dark-color);
+        position: relative;
+        display: inline-block;
+      }
+
+      .cart-title:after {
+        content: "";
+        position: absolute;
+        width: 50%;
+        height: 4px;
+        background-color: var(--secondary-color);
+        bottom: -10px;
+        left: 0;
+      }
+
+      .cart-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .cart-table th {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+      }
+
+      .cart-table td {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+      }
+
+      .cart-item-image {
+        width: 100px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 5px;
+      }
+
+      .quantity-controls {
+        display: flex;
+        align-items: center;
+      }
+
+      .quantity-btn {
+        background-color: #f0f0f0;
+        border: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .quantity-btn:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .quantity-input {
+        width: 50px;
+        text-align: center;
+        margin: 0 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+      }
+
+      .remove-btn {
+        background: none;
+        border: none;
+        color: #dc3545;
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.3s;
+      }
+
+      .remove-btn:hover {
+        transform: scale(1.2);
+      }
+
+      .cart-summary {
+        background-color: white;
+        border-radius: 10px;
+        padding: 25px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        border-top: 4px solid var(--primary-color);
+      }
+
+      .summary-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--dark-color);
+      }
+
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .summary-total {
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--dark-color);
+      }
+
+      .checkout-btn {
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: 600;
+        width: 100%;
+        margin-top: 20px;
+        transition: all 0.3s;
+      }
+
+      .checkout-btn:hover {
+        background-color: #e05f00;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+      }
+
+      .continue-shopping {
+        display: inline-block;
+        margin-top: 20px;
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .continue-shopping:hover {
+        color: var(--secondary-color);
+        text-decoration: underline;
+      }
+
+      .empty-cart {
+        text-align: center;
+        padding: 60px 0;
+      }
+
+      .empty-cart-icon {
+        font-size: 5rem;
+        color: #ddd;
+        margin-bottom: 20px;
+      }
+
+      /* Buttons */
+      .btn-primary-custom {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-primary-custom:hover {
+        background-color: #004494;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3);
+        color: white;
+      }
+
+      .btn-secondary-custom {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-secondary-custom:hover {
+        background-color: #e05f00;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        color: white;
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 60px 0 20px;
+        margin-top: 60px;
+      }
+
+      .footer-logo {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-logo img {
+        height: 40px;
+        margin-right: 10px;
+      }
+
+      .footer-logo span {
+        color: var(--secondary-color);
+      }
+
+      .footer-about {
+        margin-bottom: 20px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .footer-links h5 {
+        font-weight: 600;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+        font-size: 1.2rem;
+      }
+
+      .footer-links h5:after {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 2px;
+        background-color: var(--secondary-color);
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer-links ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 10px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: var(--secondary-color);
+        padding-left: 5px;
+      }
+
+      .social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: white;
+        border-radius: 50%;
+        margin-right: 10px;
+        transition: all 0.3s;
+      }
+
+      .social-icons a:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-5px);
+      }
+
+      .newsletter-form {
+        display: flex;
+        margin-top: 15px;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px 0 0 5px;
+        font-size: 0.9rem;
+      }
+
+      .newsletter-btn {
+        background: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 0 15px;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .newsletter-btn:hover {
+        background: #e05f00;
+      }
+
+      .copyright {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+        margin-top: 40px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.9rem;
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.8s ease;
+      }
+
+      .animate.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .delay-1 {
+        transition-delay: 0.2s;
+      }
+
+      .delay-2 {
+        transition-delay: 0.4s;
+      }
+
+      .delay-3 {
+        transition-delay: 0.6s;
+      }
+
+      /* Mobile Dropdown Indicator */
+      .dropdown-toggle .mobile-indicator {
+        display: none;
+        margin-left: 5px;
+        transition: transform 0.3s;
+      }
+
+      .dropdown.show .dropdown-toggle .mobile-indicator {
+        transform: rotate(180deg);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 991px) {
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .navbar-collapse {
+          background: var(--dark-color);
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          margin-top: 10px;
+        }
+
+        .navbar-nav {
+          text-align: center;
+        }
+
+        .nav-link {
+          margin: 5px 0;
+          display: block;
+        }
+
+        /* Show mobile indicator for dropdown on small screens */
+        .dropdown-toggle .mobile-indicator {
+          display: inline-block;
+        }
+
+        /* Fix for mobile dropdown - remove hover effects */
+        .dropdown-menu {
+          background-color: rgba(0, 0, 0, 0.3);
+          margin-top: 0;
+          text-align: center;
+          display: none; /* Hide by default on mobile */
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+          pointer-events: all;
+        }
+
+        .dropdown.show .dropdown-menu {
+          display: block; /* Show when toggled on mobile */
+        }
+
+        /* Disable hover effects on mobile */
+        .dropdown:hover .dropdown-menu {
+          display: none;
+        }
+
+        .dropdown.show .dropdown-menu {
+          display: block;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .section-padding {
+          padding: 60px 0;
+        }
+
+        .top-contact-bar {
+          text-align: center;
+        }
+
+        .contact-info,
+        .social-icons-top {
+          justify-content: center;
+          margin-bottom: 5px;
+        }
+
+        .cart-table {
+          display: block;
+          overflow-x: auto;
+        }
+
+        .cart-title {
+          font-size: 2rem;
+        }
+
+        .summary-title {
+          font-size: 1.3rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .btn-primary-custom,
+        .btn-secondary-custom {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        .d-flex.gap-3 {
+          flex-direction: column;
+        }
+
+        .navbar-brand {
+          font-size: 24px;
+        }
+
+        .navbar-brand img {
+          height: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Top Contact Bar -->
+    <div class="top-contact-bar">
+      <div class="container">
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center"
+        >
+          <div class="contact-info d-flex flex-wrap justify-content-center">
+            <a href="tel:+254700484620" title="Call">
+              <i class="fas fa-phone-alt me-2"></i> +254 700 484 620
+            </a>
+            <a href="mailto:rovatechengineering@gmail.com" title="Email">
+              <i class="fas fa-envelope me-2"></i>
+              rovatechengineering@gmail.com
+            </a>
+            <a
+              href="https://goo.gl/maps/example"
+              target="_blank"
+              title="Location"
+            >
+              <i class="fas fa-map-marker-alt me-2"></i> Juja, JKUAT Gate B
+            </a>
+          </div>
+          <div class="social-icons-top d-flex">
+            <a
+              href="https://www.facebook.com/me/"
+              aria-label="Facebook"
+              title="Facebook"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://x.com/rova_tech1" aria-label="Twitter" title="X">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/company/rovatech"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/rovatechengineering/"
+              aria-label="Instagram"
+              title="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.youtube.com/@Rovatechengineering"
+              aria-label="YouTube"
+              title="YouTube"
+            >
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="index.html"
+          title="RovaTech Solutions Home"
+        >
+          <img
+            src="IMAGES/Rovatech-Logo-ICON.png"
+            alt="RovaTech Solutions Logo"
+          />
+          Rova<span>Tech</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html" title="Home Page">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                title="View Our Products"
+                onclick="window.location.href='Products.html'; return false;"
+              >
+                Products <i class="fas fa-chevron-down mobile-indicator"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="Oilatms.html"
+                    title="Learn about our Oil ATM"
+                  >
+                    Oil ATMs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="Milkatms.html"
+                    title="Learn about our Milk ATM"
+                  >
+                    Milk ATMs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="WaterAtms.html"
+                    title="Learn about our Water ATM"
+                  >
+                    Water ATMs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="Riceatm.html"
+                    title="Learn about our Rice ATM"
+                  >
+                    Rice ATM
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="RovatechPLC.html"
+                    title="Lear about our Rovatech PLC"
+                  >
+                    Rovatech PLC
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="WaterTreatment.html"
+                    title="Water Treatment"
+                  >
+                    Water Treatment Systems
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="Products.html"
+                    title="View All Our Products"
+                  >
+                    View All Products
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="customautomation.html"
+                title="IoT Solutions"
+                >IoT Solutions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Services.html" title="Our Services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="dropdown-item active"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                title="View Blog"
+                onclick="window.location.href='Blog.html'; return false;"
+              >
+                Blog <i class="fas fa-chevron-down mobile-indicator"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="Hot to start an Oil atm Business.html"
+                    title="Learn about our Oil atm Business guide"
+                  >
+                    How to start Oil ATM Business
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="How to start a milk atm Business.html"
+                    title="Learn about our Milk ATM business guide"
+                  >
+                    How to start Milk ATM Business
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    href="How to start a water vending Bs.html"
+                    title="Learn about our Water ATM Business Guide"
+                  >
+                    How to start Water Vending Business
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="AboutRovatech.html"
+                title="About RovaTech"
+                >About Us</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="ContactUs.html" title="Contact Us"
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="cart.html" title="Shopping Cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">3</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Shopping Cart
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section section-padding">
+      <div class="container">
+        <h1 class="cart-title animate">Your Shopping Cart</h1>
+
+        <div class="row">
+          <div class="col-lg-8 animate delay-1">
+            <div class="cart-items">
+              <table class="cart-table">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img
+                          src="IMAGES/OILATM.jpg"
+                          alt="Oil ATM"
+                          class="cart-item-image me-3"
+                        />
+                        <div>
+                          <h5>Oil ATM</h5>
+                          <p class="text-muted mb-0">
+                            Automated Oil Dispensing Machine
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>KES 180,000</td>
+                    <td>
+                      <div class="quantity-controls">
+                        <button class="quantity-btn">-</button>
+                        <input
+                          type="number"
+                          class="quantity-input"
+                          value="1"
+                          min="1"
+                        />
+                        <button class="quantity-btn">+</button>
+                      </div>
+                    </td>
+                    <td>KES 180,000</td>
+                    <td>
+                      <button class="remove-btn">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img
+                          src="IMAGES/milk atm.jpg"
+                          alt="Milk ATM"
+                          class="cart-item-image me-3"
+                        />
+                        <div>
+                          <h5>Milk ATM</h5>
+                          <p class="text-muted mb-0">
+                            Hygienic Milk Dispensing System
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>KES 150,000</td>
+                    <td>
+                      <div class="quantity-controls">
+                        <button class="quantity-btn">-</button>
+                        <input
+                          type="number"
+                          class="quantity-input"
+                          value="1"
+                          min="1"
+                        />
+                        <button class="quantity-btn">+</button>
+                      </div>
+                    </td>
+                    <td>KES 150,000</td>
+                    <td>
+                      <button class="remove-btn">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img
+                          src="IMAGES/embeddedcomponents.jpg"
+                          alt="Embedded Components"
+                          class="cart-item-image me-3"
+                        />
+                        <div>
+                          <h5>Embedded Components Kit</h5>
+                          <p class="text-muted mb-0">
+                            Microcontrollers, Sensors & Modules
+                          </p>
+                        </div>
+                      </div>
+                    </td>
+                    <td>KES 25,000</td>
+                    <td>
+                      <div class="quantity-controls">
+                        <button class="quantity-btn">-</button>
+                        <input
+                          type="number"
+                          class="quantity-input"
+                          value="1"
+                          min="1"
+                        />
+                        <button class="quantity-btn">+</button>
+                      </div>
+                    </td>
+                    <td>KES 25,000</td>
+                    <td>
+                      <button class="remove-btn">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="d-flex justify-content-between">
+                <a href="index.html#products" class="continue-shopping">
+                  <i class="fas fa-arrow-left me-2"></i> Continue Shopping
+                </a>
+                <button class="btn btn-primary-custom">Update Cart</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 animate delay-2">
+            <div class="cart-summary">
+              <h3 class="summary-title">Order Summary</h3>
+
+              <div class="summary-row">
+                <span>Subtotal:</span>
+                <span>KES 355,000</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Shipping:</span>
+                <span>KES 5,000</span>
+              </div>
+
+              <div class="summary-row">
+                <span>Tax (16%):</span>
+                <span>KES 56,800</span>
+              </div>
+
+              <div class="summary-row summary-total">
+                <span>Total:</span>
+                <span>KES 416,800</span>
+              </div>
+
+              <button class="checkout-btn">Proceed to Checkout</button>
+
+              <div class="mt-4">
+                <p class="text-center mb-2">We Accept:</p>
+                <div class="d-flex justify-content-center">
+                  <i class="fab fa-cc-visa fa-2x me-3 text-primary"></i>
+                  <i class="fab fa-cc-mastercard fa-2x me-3 text-danger"></i>
+                  <i class="fab fa-cc-paypal fa-2x text-primary"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-5 mb-lg-0">
+            <div class="footer-logo">
+              <img
+                src="IMAGES/Rovatech-Logo-ICON.png"
+                alt="RovaTech Solutions Logo"
+              />
+              Rova<span>Tech</span>
+            </div>
+            <p class="footer-about">
+              Leading manufacturer of automated dispensing machines and custom
+              automation solutions for various industries across Kenya.
+            </p>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/me/"
+                aria-label="Facebook"
+                title="Follow us on Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://x.com/rova_tech1"
+                aria-label="Twitter"
+                title="Follow us on Twitter"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/rovatech"
+                aria-label="LinkedIn"
+                title="Connect with us on LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/rovatechengineering/"
+                aria-label="Instagram"
+                title="Follow us on Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/@Rovatechengineering"
+                aria-label="YouTube"
+                title="Subscribe to our YouTube channel"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 mb-5 mb-md-0">
+            <div class="footer-links">
+              <h5>Quick Links</h5>
+              <ul>
+                <li><a href="index.html" title="Home Page">Home</a></li>
+                <li>
+                  <a href="Products.html" title="Our Products">Products</a>
+                </li>
+                <li>
+                  <a href="Services.html" title="Our Services">Services</a>
+                </li>
+                <li>
+                  <a href="AboutRovatech.html" title="About RovaTech"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a href="ContactUs.html" title="Contact Us">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
+            <div class="footer-links">
+              <h5>Our Products</h5>
+              <ul>
+                <li>
+                  <a href="Oilatms.html" target="_blank" title="Oil ATMs"
+                    >Oil ATMs</a
+                  >
+                </li>
+                <li>
+                  <a href="Milkatms.html" target="_blank" title="Milk ATMs"
+                    >Milk ATMs</a
+                  >
+                </li>
+                <li>
+                  <a href="WaterAtms.html" target="_blank" title="Water ATMs"
+                    >Water ATMs</a
+                  >
+                </li>
+                <li><a href="Riceatm.html" title="Rice ATMs">Rice ATMs</a></li>
+                <li>
+                  <a href="RovatechPLC.html" title="Rovatech PLC"
+                    >Rovatech PLC</a
+                  >
+                </li>
+                <li>
+                  <a href="customautomation.html" title="Custom Solutions"
+                    >Custom Solutions</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="footer-links">
+              <h5>Newsletter</h5>
+              <p>
+                Subscribe to our newsletter for the latest updates and special
+                offers.
+              </p>
+              <form class="newsletter-form">
+                <input
+                  type="email"
+                  class="newsletter-input"
+                  placeholder="Your Email"
+                  required
+                />
+                <button type="submit" class="newsletter-btn" title="Subscribe">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+              <div class="mt-3">
+                <p><i class="fas fa-clock me-2"></i> Mon-Fri: 8AM-5PM</p>
+                <p><i class="fas fa-clock me-2"></i> Sat: 9AM-2PM</p>
+                <p>
+                  <i class="fas fa-phone-alt me-2"></i>
+                  <a href="tel:+254700484620" title="Call RovaTech"
+                    >+254 700 484 620</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright text-center">
+          <p class="mb-0">
+            &copy; 2025 RovaTech Solutions. All Rights Reserved. | Designed for
+            Kenyan Market
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Animation on scroll
+      document.addEventListener("DOMContentLoaded", function () {
+        const animateElements = document.querySelectorAll(".animate");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("animated");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        animateElements.forEach((element) => {
+          observer.observe(element);
+        });
+
+        // Cart functionality
+        // Quantity controls
+        const quantityBtns = document.querySelectorAll(".quantity-btn");
+        const quantityInputs = document.querySelectorAll(".quantity-input");
+        const removeBtns = document.querySelectorAll(".remove-btn");
+        const updateCartBtn = document.querySelector(".btn-primary-custom");
+
+        // Update quantity
+        quantityBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const input = this.parentElement.querySelector(".quantity-input");
+            let value = parseInt(input.value);
+
+            if (this.textContent === "+") {
+              value++;
+            } else if (this.textContent === "-" && value > 1) {
+              value--;
+            }
+
+            input.value = value;
+            updateTotals();
+          });
+        });
+
+        // Remove item
+        removeBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const row = this.closest("tr");
+            row.remove();
+            updateCartCount();
+            updateTotals();
+          });
+        });
+
+        // Update cart count
+        function updateCartCount() {
+          const cartCount = document.querySelector(".cart-count");
+          const items = document.querySelectorAll("tbody tr");
+          cartCount.textContent = items.length;
+        }
+
+        // Update totals
+        function updateTotals() {
+          // This would normally calculate based on actual prices and quantities
+          // For demo purposes, we'll just update the display
+          console.log("Totals updated");
+        }
+
+        // Update cart button
+        updateCartBtn.addEventListener("click", function () {
+          alert("Cart updated successfully!");
+          updateTotals();
+        });
+
+        // Newsletter form submission
+        const newsletterForms = document.querySelectorAll(".newsletter-form");
+        newsletterForms.forEach((form) => {
+          form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const input = this.querySelector(".newsletter-input");
+            alert("Thank you for subscribing to our newsletter!");
+            input.value = "";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
