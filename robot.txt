@@ -6,10 +6,33 @@ Allow: /
 
 # Allow all search engines to crawl main pages
 Allow: /index.html
-Allow: /Oilatm.html
-Allow: /Milkatm.html
-Allow: /Wateratm.html
-Allow: /components.html
+Allow: /100L_Milkatm.html
+Allow: /100L_OilAtm.html
+Allow: /1tap_Cabinettype_Wateratm.html
+Allow: /200L_Milkatm.html
+Allow: /20L_OilAtm.html
+Allow: /2taps_CabinettypeWateratm.html
+Allow: /50LOilatm.html
+Allow: /50L_milkatm.html
+Allow: /AboutRovatech.html
+Allow: /Blog.html
+Allow: /Cart.html
+Allow: /ContactUs.html
+Allow: /DesktopMilkAtm.html
+Allow: /Desktop_OilATM.html
+Allow: /Hot to start an Oil atm Business.html
+Allow: /How to start a milk atm Business.html
+Allow: /How to start a water vending Bs.html
+Allow: /Milkatms.html
+Allow: /Oilatms.html
+Allow: /Products.html
+Allow: /Riceatm.html
+Allow: /RovatechPLC.html
+Allow: /Services.html
+Allow: /WaterAtms.html
+Allow: /WaterTreatment.html
+Allow: /checkout.html
+Allow: /customautomation.html
 
 # Allow crawling of images directory
 Allow: /IMAGES/
